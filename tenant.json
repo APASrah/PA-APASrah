@@ -1,0 +1,76 @@
+[
+    {
+        "id": 1,
+        "nama": "Lapak Makanan",
+        "harga": 50000,
+        "kategori": [
+            "Makanan"
+        ],
+        "stok": 9,
+        "status": "Tersedia"
+    },
+    {
+        "id": 2,
+        "nama": "Lapak Minuman",
+        "harga": 40000,
+        "kategori": [
+            "Minuman"
+        ],
+        "stok": 9,
+        "status": "Tersedia"
+    },
+    {
+        "id": 3,
+        "nama": "Lapak Fashion",
+        "harga": 60000,
+        "kategori": [
+            "Fashion"
+        ],
+        "stok": 10,
+        "status": "Tersedia"
+    },
+    {
+        "id": 4,
+        "nama": "Lapak Kerajinan",
+        "harga": 45000,
+        "kategori": [
+            "Kerajinan"
+        ],
+        "stok": 10,
+        "status": "Tersedia"
+    },
+    {
+        "id": 5,
+        "nama": "Lapak Lainnya",
+        "harga": 30000,
+        "kategori": [
+            "Lainnya"
+        ],
+        "stok": 10,
+        "status": "Tersedia"
+    },
+    {
+        "id": 6,
+        "nama": "nasgor azzam",
+        "kategori": [
+            "Makanan"
+        ],
+        "harga": 50000,
+        "stok": 1,
+        "status": "Disewa",
+        "induk": 1,
+        "penyewa": "ff"
+    },
+    {
+        "id": 7,
+        "nama": "minum ajam",
+        "kategori": [
+            "Minuman"
+        ],
+        "harga": 40000,
+        "stok": 1,
+        "status": "Disewa",
+        "induk": 2,
+        "penyewa": "ff"
+    }
+]

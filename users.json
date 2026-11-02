@@ -1,0 +1,27 @@
+{
+    "admin": {
+        "password": "admin123",
+        "role": "admin",
+        "saldo": 0
+    },
+    "ff": {
+        "password": "gg",
+        "role": "user",
+        "saldo": 9260000
+    },
+    "DYLAN": {
+        "password": "C:\\ApasProjek\\users.json",
+        "role": "user",
+        "saldo": 0
+    },
+    "2& C:\\Users\\Acer\\AppData\\Local\\Programs\\Python\\Python311\\python.exe c:/ApasProjek/reservasi_tenant_gabungan.py": {
+        "password": "2",
+        "role": "user",
+        "saldo": 0
+    },
+    "#dylan": {
+        "password": "dylan123",
+        "role": "user",
+        "saldo": 50000
+    }
+}
