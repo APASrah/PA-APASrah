@@ -40,9 +40,9 @@
 | No | Nama | NIM / ID | Peran | Tanggung Jawab | GitHub |
 |:--:|------|----------|-------|----------------|--------|
 | 1 | **Muhammad Pasha Aditya** | `2609116085` | Ketua Tim | Autentikasi (login & registrasi), Erorr Handling, Membantu CRUD dasar | [@MuhammadPashaAditya](https://github.com/MuhammadPashaAditya) |
-| 2 | **Nama Anggota 2** | `XXXXXXXX` | Pengembang Tenant | CRUD data tenant (tambah, tampil, ubah, hapus), menu admin | [@username2](https://github.com/username2) |
-| 3 | **Nama Anggota 3** | `XXXXXXXX` | Pengembang Transaksi | Top up, reservasi & pembayaran, invoice, menu user | [@username3](https://github.com/username3) |
-| 4 | **Nama Anggota 4** | `XXXXXXXX` | Dokumentasi & Pengujian | Riwayat transaksi, laporan admin, README, pengujian program | [@username4](https://github.com/username4) |
+| 2 | **** | `XXXXXXXX` | Pengembang Tenant | CRUD data tenant (tambah, tampil, ubah, hapus), menu admin | [@username2](https://github.com/username2) |
+| 3 | ** 3** | `XXXXXXXX` | Pengembang Transaksi | Top up, reservasi & pembayaran, invoice, menu user | [@username3](https://github.com/username3) |
+| 4 | **** | `XXXXXXXX` | Dokumentasi & Pengujian | Riwayat transaksi, laporan admin, README, pengujian program | [@username4](https://github.com/username4) |
 
 ---
 
