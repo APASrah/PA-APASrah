@@ -47,7 +47,7 @@
 | 1 | **Muhammad Pasha Aditya** | `2609116085` | Ketua Tim | Autentikasi (login & registrasi), error handling, membantu CRUD dasar, membantu revisi flowchart dan laporan | [@MuhammadPashaAditya](https://github.com/MuhammadPashaAditya) |
 | 2 | **Lithalia Geminifer Addawiyah** | `2609116088` | Flowchart, Laporan | Flowchart, Laporan | [@lithaliageminiferaddawiyah](https://github.com/lithaliageminiferaddawiyah) |
 | 3 | **Muhammad Fahry Praditya** | `2609116104` | Coding, Flowchart, Laporan | Ngoding, Pengembangan dan revisi kode, revisi flowchart, revisi laporan,  | [@muhammadfahrypraditya](https://github.com/muhammadfahrypraditya) |
-| 4 | **Astri Maharani** | `2609116106` | Dokumentasi & Pengujian | Riwayat transaksi, laporan admin, README, pengujian program | [@astrimaharan343-dot](https://github.com/astrimaharan343-dot) |
+| 4 | **Astri Maharani** | `2609116106` | Dokumentasi & Pengujian | Riwayat transaksi, laporan admin, README, pengujian program | [@username4](https://github.com/username4) |
 
 ---
 
@@ -1954,113 +1954,115 @@ Secara umum, alur kerja program dapat dijelaskan sebagai berikut:
 
 > 📝 **Petunjuk untuk tim:** Jalankan program, ambil screenshot setiap tampilan, kemudian simpan di folder `docs/screenshots/` menggunakan nama file seperti di bawah. Pastikan file gambar sudah diunggah ke repositori GitHub agar dapat ditampilkan. Hapus petunjuk ini setelah semua screenshot terpasang.
 
-### 6.1 Menu Utama
+### 12.1 Menu Utama
 
-![Menu Utama](docs/screenshots/01-menu-utama.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 22 48 38" src="https://github.com/user-attachments/assets/addc63a5-81c7-4ae8-a546-47218ebbd11f" />
 
 **Penjelasan:**
 
 Tampilan awal program dengan tiga pilihan, yaitu Login, Registrasi, dan Keluar. Input selain angka 1 sampai 3 akan menampilkan pesan "Pilihan tidak valid".
 
-### 6.2 Registrasi
+### 12.2 Registrasi
 
-![Registrasi](docs/screenshots/02-registrasi.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 23 04 43" src="https://github.com/user-attachments/assets/2b8b9062-78ca-4390-a008-336abe8432fb" />
 
 **Penjelasan:**
 
 User mengisi username dan password. Program memeriksa apakah username kosong, mengandung spasi, atau sudah digunakan. Jika valid, akun disimpan ke `users.json` dengan role `user` dan saldo Rp0.
 
-### 6.3 Login
+### 12.3 Login
 
-![Login](docs/screenshots/03-login.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 23 10 29" src="https://github.com/user-attachments/assets/32361b11-2b2f-411b-b98b-9ebb3088cae2" />
 
 **Penjelasan:**
 
 User memasukkan username dan password. Password disamarkan saat diketik. Jika salah, program menampilkan sisa percobaan. Setelah 3 kali gagal, pengguna kembali ke menu utama.
 
-### 6.4 Menu Admin
+### 12.4 Menu Admin
 
-![Menu Admin](docs/screenshots/04-menu-admin.png)
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/4e0ba913-1f08-488e-b350-eb8bd76f9f91" />
 
 **Penjelasan:**
 
 Admin memiliki 8 menu untuk mengelola tenant, melihat riwayat transaksi, mencetak ulang invoice, melihat laporan ringkas, menambah saldo user, dan logout.
 
-### 6.5 Tampilkan Data Tenant
+### 12.5 Tampilkan Data Tenant
 
-![Data Tenant](docs/screenshots/05-data-tenant.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 22 41 21" src="https://github.com/user-attachments/assets/d62bf2ed-2c57-4eae-af8c-8215257af411" />
 
 **Penjelasan:**
 
 Data tampil dalam tabel dengan kolom No, Nama Tenant, Kategori, Harga Sewa, Stok, Status, dan Penyewa. Lapak induk berstatus `Tersedia` atau `Penuh`, sedangkan tenant hasil sewa berstatus `Disewa` dan tampil di bawah lapak induknya.
 
-### 6.6 Tambah Data Tenant
+### 12.6 Tambah Data Tenant
 
-![Tambah Tenant](docs/screenshots/06-tambah-tenant.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 22 40 46" src="https://github.com/user-attachments/assets/7e9e038c-58e1-407b-8c64-2af28de3e7c6" />
 
 **Penjelasan:**
 
 Admin mengisi nama tenant, memilih kategori 1 sampai 5, dan menentukan harga sewa. Nama yang kosong atau sudah digunakan akan ditolak. Lapak baru otomatis memiliki stok 20.
 
-### 6.7 Ubah Data Tenant
+### 12.7 Ubah Data Tenant
 
-![Ubah Tenant](docs/screenshots/07-ubah-tenant.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 23 18 38" src="https://github.com/user-attachments/assets/3f26582c-769a-463e-9605-6b1d46bebec4" />
 
 **Penjelasan:**
 
 Admin memilih tenant berdasarkan nomor di tabel, kemudian mengubah data tenant. Stok tidak boleh melebihi 20.
 
-### 6.8 Hapus Data Tenant
+### 12.8 Hapus Data Tenant
 
-![Hapus Tenant](docs/screenshots/08-hapus-tenant.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 23 19 36" src="https://github.com/user-attachments/assets/abe097ff-60fd-4c79-bf22-30b5b61b75b3" />
 
 **Penjelasan:**
 
 Program meminta konfirmasi `y/n` sebelum menghapus tenant. Jika yang dihapus adalah lapak induk, tenant hasil sewanya juga ikut terhapus dan peringatan ditampilkan terlebih dahulu.
 
-### 6.9 Laporan Ringkas
+### 12.9 Laporan Ringkas
 
-![Laporan](docs/screenshots/09-laporan.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 23 20 47" src="https://github.com/user-attachments/assets/bef58e65-a5a8-4fda-b191-2e6baf21d660" />
 
 **Penjelasan:**
 
 Laporan menampilkan total pendapatan, jumlah transaksi reservasi, tenant terlaris, dan tabel jumlah lapak yang dipesan per tenant.
 
-### 6.10 Tambah Saldo User (Admin)
+### 12.10 Tambah Saldo User (Admin)
 
-![Tambah Saldo](docs/screenshots/10-tambah-saldo.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 22 37 02 (2)" src="https://github.com/user-attachments/assets/a90d71a6-4cf9-44f3-b36f-7942a1382a7a" />
 
 **Penjelasan:**
 
 Admin melihat daftar user beserta saldonya, memilih username tujuan, lalu mengisi nominal saldo. Transaksi dicatat dengan tipe `Top Up Admin`.
 
-### 6.11 Menu User
+### 12.11 Menu User
 
-![Menu User](docs/screenshots/11-menu-user.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 22 36 56" src="https://github.com/user-attachments/assets/c1bb0372-04f9-48e4-bfd6-1e868f97ae06" />
 
 **Penjelasan:**
 
 User memiliki 5 menu, yaitu tampilkan tenant, top up saldo, reservasi, riwayat transaksi, dan logout.
 
-### 6.12 Top Up Saldo
+### 12.12 Top Up Saldo
 
-![Top Up](docs/screenshots/12-top-up.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 22 36 57 (1)" src="https://github.com/user-attachments/assets/17ce7212-a893-4965-b631-24799d6ec5a1" />
 
 **Penjelasan:**
 
 Program menampilkan saldo saat ini serta batas minimal dan maksimal top up. Nominal di luar batas akan ditolak. Setelah dikonfirmasi, saldo bertambah dan kode transaksi ditampilkan.
 
-### 6.13 Reservasi & Pembayaran
+### 12.13 Reservasi & Pembayaran
 
-![Reservasi](docs/screenshots/13-reservasi.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 22 36 57 (2)" src="https://github.com/user-attachments/assets/7bc04bfc-d211-47a6-ac65-696e4af5a1aa" />
 
 **Penjelasan:**
 
 User memilih lapak, menentukan jumlah, dan memasukkan nama tenant. Program menampilkan ringkasan serta total pembayaran. Jika saldo kurang, program menampilkan selisih kekurangannya. Jika saldo cukup dan pembayaran dikonfirmasi, stok berkurang dan saldo terpotong.
 
-### 6.14 Invoice
+### 12.14 Invoice
 
-![Invoice](docs/screenshots/14-invoice.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 22 36 58" src="https://github.com/user-attachments/assets/9242d055-af7e-48c8-b110-bb32998683d5" />
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 22 36 59" src="https://github.com/user-attachments/assets/5dcae8a4-0005-48c7-8fd6-566557e2a924" />
+
 
 **Penjelasan:**
 
@@ -2068,7 +2070,7 @@ Setelah pembayaran reservasi berhasil, invoice ditampilkan di layar dan disimpan
 
 ### 6.15 Riwayat Transaksi
 
-![Riwayat](docs/screenshots/15-riwayat.png)
+<img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 23 24 49" src="https://github.com/user-attachments/assets/0b31247a-2218-451d-9368-d229196182eb" />
 
 **Penjelasan:**
 
