@@ -18,7 +18,7 @@
 2. [Anggota & Peran](#2-anggota--peran)
 3. [Deskripsi & Tujuan](#3-deskripsi--tujuan)
 4. [Flowchart](#4-flowchart)
-5. [Kode dan Penjelasan](#5-Kode--dan--Penjelasan)
+5. [Struktur Folder dan File](#5-Struktur--Folder--dan--File)
 6. [Persiapan](#6-Persiapan)
 7. [Penjelasan Kode Program](#7-Penjelasan--kode--program)
 8. [Struktur Data JSON](#8-Struktur--Data--JSON)
@@ -598,82 +598,6 @@ Fungsi `cetak_ulang_invoice(username, role)` digunakan untuk mencetak ulang invo
 | Tipe transaksi | Invoice hanya dibuat untuk transaksi reservasi, bukan transaksi top up |
 
 ---
-
-# SISTEM RESERVASI TENANT BAZAR
-
-## 1. Deskripsi Program
-
-Sistem Reservasi Tenant Bazar merupakan aplikasi berbasis Python yang digunakan untuk mengelola penyewaan lapak atau tenant bazar secara terkomputerisasi melalui terminal atau Command Prompt.
-
-Program ini dibuat untuk mempermudah proses pengelolaan data tenant, pemesanan lapak, pembayaran menggunakan saldo e-money, pengelolaan stok, serta pencatatan riwayat transaksi.
-
-Sistem memiliki dua jenis pengguna, yaitu **Admin** dan **User**. Admin bertugas mengelola data tenant dan memantau transaksi, sedangkan user dapat melihat tenant yang tersedia, melakukan top up saldo, menyewa lapak, serta melihat riwayat transaksi dan invoice.
-
-Seluruh data program disimpan menggunakan file JSON sehingga informasi akun, tenant, dan transaksi dapat digunakan kembali ketika program dijalankan.
-
-## 2. Tujuan Program
-
-Tujuan pembuatan Sistem Reservasi Tenant Bazar adalah:
-
-1. Mempermudah pengelolaan data tenant bazar.
-2. Mempermudah pengguna dalam mencari dan memesan lapak.
-3. Menerapkan sistem pembayaran menggunakan saldo e-money.
-4. Mengelola stok lapak secara otomatis berdasarkan jumlah reservasi.
-5. Menyimpan riwayat transaksi secara terstruktur.
-6. Menyediakan invoice sebagai bukti transaksi reservasi.
-7. Membantu admin memantau pendapatan dan jumlah lapak yang disewa.
-
-## 3. Fitur Program
-
-### 3.1 Fitur Admin
-
-Admin memiliki akses untuk mengelola seluruh data dan aktivitas utama dalam sistem.
-
-| No. | Fitur | Penjelasan |
-|---|---|---|
-| 1 | Login Admin | Masuk ke sistem menggunakan akun admin. |
-| 2 | Tambah Tenant | Menambahkan data tenant baru. |
-| 3 | Tampilkan Tenant | Melihat seluruh data tenant yang tersedia. |
-| 4 | Ubah Tenant | Mengubah nama, kategori, harga, dan stok lapak induk. |
-| 5 | Hapus Tenant | Menghapus data tenant beserta tenant hasil sewa yang terhubung jika yang dihapus adalah lapak induk. |
-| 6 | Riwayat Transaksi | Melihat seluruh transaksi yang dilakukan pengguna. |
-| 7 | Cetak Ulang Invoice | Mencetak kembali invoice transaksi reservasi. |
-| 8 | Laporan Ringkas | Melihat total pendapatan, jumlah transaksi reservasi, dan tenant terlaris. |
-| 9 | Tambah Saldo User | Menambahkan saldo e-money ke akun pengguna. |
-| 10 | Logout | Keluar dari akun admin. |
-
-### 3.2 Fitur User
-
-User dapat melakukan aktivitas penyewaan tenant dan transaksi secara mandiri.
-
-| No. | Fitur | Penjelasan |
-|---|---|---|
-| 1 | Registrasi | Membuat akun pengguna baru. |
-| 2 | Login User | Masuk menggunakan username dan password. |
-| 3 | Tampilkan Tenant | Melihat daftar tenant, kategori, harga, stok, dan status. |
-| 4 | Top Up Saldo | Mengisi saldo e-money dengan nominal yang ditentukan. |
-| 5 | Reservasi Tenant | Memesan satu atau beberapa lapak dalam satu transaksi. |
-| 6 | Pembayaran | Membayar biaya reservasi menggunakan saldo e-money. |
-| 7 | Riwayat Transaksi | Melihat transaksi milik akun sendiri. |
-| 8 | Invoice | Mendapatkan bukti pembayaran reservasi dalam bentuk file teks. |
-| 9 | Cetak Ulang Invoice | Mencetak kembali invoice berdasarkan kode transaksi. |
-| 10 | Logout | Keluar dari akun pengguna. |
-
-## 4. Teknologi dan Library yang Digunakan
-
-Program dibuat menggunakan bahasa pemrograman Python dengan beberapa library pendukung.
-
-| No. | Library | Kegunaan |
-|---|---|---|
-| 1 | `os` | Mengelola folder, lokasi file, dan membersihkan layar terminal. |
-| 2 | `time` | Memberikan jeda waktu dalam program. |
-| 3 | `json` | Membaca dan menyimpan data dalam format JSON. |
-| 4 | `random` | Menghasilkan angka acak untuk kode transaksi. |
-| 5 | `datetime` | Mengambil tanggal dan waktu transaksi. |
-| 6 | `prettytable` | Menampilkan data dalam bentuk tabel. |
-| 7 | `pwinput` | Menyembunyikan password ketika dimasukkan pengguna. |
-
-Library `os`, `time`, `json`, `random`, dan `datetime` merupakan library bawaan Python. Sementara itu, `prettytable` dan `pwinput` perlu diinstal terlebih dahulu.
 
 ## 5. Struktur Folder dan File
 
