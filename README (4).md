@@ -1,4 +1,4 @@
-<div align="center">
+ <div align="center">
 
 # 🏪 Sistem Reservasi Tenant Bazar
 
@@ -14,19 +14,19 @@
 
 ## 📑 Daftar Isi
 
-1. [Judul / Tema](#1--judul--tema)
-2. [Anggota & Peran](#2--anggota--peran)
-3. [Deskripsi & Tujuan](#3--deskripsi--tujuan)
-4. [Flowchart](#4--flowchart)
-5. [Daftar Fitur per Role](#5--daftar-fitur-per-role)
-6. [Screenshot Output & Penjelasan](#6--screenshot-output--penjelasan)
-7. [Cara Menjalankan Program](#7--cara-menjalankan-program)
+1. [Judul / Tema](#1-judul--tema)
+2. [Anggota & Peran](#2-anggota--peran)
+3. [Deskripsi & Tujuan](#3-deskripsi--tujuan)
+4. [Flowchart](#4-flowchart)
+5. [Daftar Fitur per Role](#5-daftar-fitur-per-role)
+6. [Screenshot Output & Penjelasan](#6-screenshot-output--penjelasan)
+7. [Cara Menjalankan Program](#7-cara-menjalankan-program)
 
 ---
 
 ## 1. 🎯 Judul / Tema
 
-| | |
+| Keterangan | Isi |
 |---|---|
 | **Judul** | Sistem Reservasi Tenant Bazar |
 | **Tema** | Manajemen penyewaan lapak bazar dengan pembayaran e-money |
@@ -38,7 +38,7 @@
 ## 2. 👥 Anggota & Peran
 
 | No | Nama | NIM / ID | Peran | Tanggung Jawab | GitHub |
-|:--:|------|----------|-------|----------------|--------|
+|:--:|---|---|---|---|---|
 | 1 | **Muhammad Pasha Aditya** | `2609116085` | Ketua Tim | Autentikasi (login & registrasi), error handling, membantu CRUD dasar, membantu revisi flowchart dan laporan | [@MuhammadPashaAditya](https://github.com/MuhammadPashaAditya) |
 | 2 | **Lithalia Geminifer Addawiyah** | `2609116088` | Pengembang Tenant | CRUD data tenant (tambah, tampil, ubah, hapus), menu admin | [@username2](https://github.com/username2) |
 | 3 | **Muhammad Fahry Praditya** | `2609116104` | Pengembang Transaksi | Top up, reservasi & pembayaran, invoice, menu user | [@username3](https://github.com/username3) |
@@ -72,12 +72,12 @@ Setiap lapak induk memiliki kuota maksimal **20 lapak** dan dibagi ke dalam 5 ka
 
 <table>
 <tr>
-<td valign="top">
+<td width="45%" valign="top">
 
 <img src="https://github.com/user-attachments/assets/da813817-78d5-4118-81bf-b912fe7296c0" alt="Flowchart alur program utama" width="380">
 
 </td>
-<td valign="top">
+<td width="55%" valign="top">
 
 #### Proses Awal (Load Data)
 
@@ -124,12 +124,12 @@ Setiap lapak induk memiliki kuota maksimal **20 lapak** dan dibagi ke dalam 5 ka
 
 <table>
 <tr>
-<td valign="top">
+<td width="45%" valign="top">
 
 <img src="https://github.com/user-attachments/assets/064cadf8-01d1-493c-bbea-befd8b18c481" alt="Flowchart menu admin" width="380">
 
 </td>
-<td valign="top">
+<td width="55%" valign="top">
 
 #### Daftar Menu
 
@@ -204,12 +204,12 @@ Admin memilih menu (`input pilihan`), lalu program mencocokkan nilainya dengan p
 
 <table>
 <tr>
-<td valign="top">
+<td width="45%" valign="top">
 
 <img src="https://github.com/user-attachments/assets/64992ee3-0c81-4b07-8418-80199f1a87b5" alt="Flowchart menu user" width="380">
 
 </td>
-<td valign="top">
+<td width="55%" valign="top">
 
 #### Tampilan Awal
 
@@ -265,12 +265,12 @@ Setelah login dengan role `user`, program menjalankan `bersihkan_layar()` lalu m
 
 <table>
 <tr>
-<td valign="top">
+<td width="45%" valign="top">
 
 <img src="https://github.com/user-attachments/assets/6346f393-37cb-46a6-8bfe-c6aacb93926d" alt="Flowchart laporan ringkas" width="380">
 
 </td>
-<td valign="top">
+<td width="55%" valign="top">
 
 #### Gambaran Umum
 
@@ -317,12 +317,12 @@ Fitur ini dipanggil dari Menu Admin (konektor `P`). Program membaca seluruh data
 
 <table>
 <tr>
-<td valign="top">
+<td width="45%" valign="top">
 
 <img src="https://github.com/user-attachments/assets/d3f48b1a-3c39-41fd-9c39-64ea2bf36ada" alt="Flowchart top up saldo" width="380">
 
 </td>
-<td valign="top">
+<td width="55%" valign="top">
 
 #### Gambaran Umum
 
@@ -391,12 +391,12 @@ Fitur ini dipanggil dari Menu User (pilihan `2`). User mengisi saldo dengan nomi
 
 <table>
 <tr>
-<td valign="top">
+<td width="45%" valign="top">
 
 <img src="https://github.com/user-attachments/assets/d5af8391-63bd-4057-bb81-989420c6b539" alt="Flowchart reservasi dan pembayaran tenant" width="380">
 
 </td>
-<td valign="top">
+<td width="55%" valign="top">
 
 #### Gambaran Umum
 
@@ -480,12 +480,12 @@ Tiga fungsi ini dipanggil dari fitur lain (top up, reservasi, tenant) dan tidak 
 
 <table>
 <tr>
-<td valign="top">
+<td width="45%" valign="top">
 
 <img src="https://github.com/user-attachments/assets/bf00d338-15a3-46bb-b5eb-ab7ed6ec0dd4" alt="Flowchart perbarui_status" width="380">
 
 </td>
-<td valign="top">
+<td width="55%" valign="top">
 
 Memperbarui kolom status tenant sesuai sisa stok lapak.
 
@@ -510,12 +510,12 @@ Memperbarui kolom status tenant sesuai sisa stok lapak.
 
 <table>
 <tr>
-<td valign="top">
+<td width="45%" valign="top">
 
 <img src="https://github.com/user-attachments/assets/a5f705a3-1e85-4dea-b26f-83051faf188b" alt="Flowchart buat_kode" width="380">
 
 </td>
-<td valign="top">
+<td width="55%" valign="top">
 
 Membuat kode transaksi unik (contoh: `TRX-251103200500`).
 
@@ -544,12 +544,12 @@ Membuat kode transaksi unik (contoh: `TRX-251103200500`).
 
 <table>
 <tr>
-<td valign="top">
+<td width="45%" valign="top">
 
 <img src="https://github.com/user-attachments/assets/ad7826bb-1ea6-4a60-abfc-f03df682adbe" alt="Flowchart catat_transaksi" width="380">
 
 </td>
-<td valign="top">
+<td width="55%" valign="top">
 
 Menyimpan satu transaksi baru ke `transaksi.json`.
 
@@ -586,7 +586,6 @@ Menyimpan satu transaksi baru ke `transaksi.json`.
 </tr>
 </table>
 
-
 ### 4.8 Invoice & Riwayat Transaksi
 
 Tiga fungsi ini dipanggil dari Menu User (pilihan `4`), Menu Admin (pilihan `5`), dan setelah pembayaran reservasi.
@@ -599,7 +598,7 @@ Tiga fungsi ini dipanggil dari Menu User (pilihan `4`), Menu Admin (pilihan `5`)
 <tr>
 <td width="45%" valign="top">
 
-<img src="https://github.com/user-attachments/assets/a1e089f6-8b76-4ac0-af52-a4763ccc13c5" />
+<img src="https://github.com/user-attachments/assets/a1e089f6-8b76-4ac0-af52-a4763ccc13c5" alt="Flowchart cetak_invoice" width="380">
 
 </td>
 <td width="55%" valign="top">
@@ -693,12 +692,13 @@ Mencetak ulang invoice berdasarkan kode transaksi yang dimasukkan oleh user. Fun
 </table>
 
 ---
+
 ## 5. 📋 Daftar Fitur per Role
 
 ### 🌐 Umum (Tanpa Login)
 
 | Fitur | Keterangan |
-|-------|------------|
+|---|---|
 | Login | Maksimal 3 kali percobaan, password tersembunyi saat diketik |
 | Registrasi | Username unik, tidak boleh kosong, tidak boleh mengandung spasi; akun baru otomatis berperan `user` dengan saldo Rp 0 |
 | Keluar | Menutup program |
@@ -706,7 +706,7 @@ Mencetak ulang invoice berdasarkan kode transaksi yang dimasukkan oleh user. Fun
 ### 👑 Admin
 
 | No | Fitur | Keterangan |
-|:--:|-------|------------|
+|:--:|---|---|
 | 1 | Tambah data tenant | Input nama, kategori, dan harga sewa; lapak baru otomatis berkuota 20 |
 | 2 | Tampilkan data tenant | Tabel terurut per kategori, lapak induk diikuti tenant hasil sewa |
 | 3 | Ubah data tenant | Ubah nama, kategori, harga, dan stok; tenant hasil sewa hanya bisa diubah namanya |
@@ -719,7 +719,7 @@ Mencetak ulang invoice berdasarkan kode transaksi yang dimasukkan oleh user. Fun
 ### 👤 User
 
 | No | Fitur | Keterangan |
-|:--:|-------|------------|
+|:--:|---|---|
 | 1 | Tampilkan data tenant | Melihat daftar lapak, stok, dan status |
 | 2 | Top up saldo | Minimal Rp 10.000, maksimal Rp 10.000.000 per transaksi, dengan konfirmasi |
 | 3 | Reservasi & bayar tenant | Memilih lapak, jumlah, nama tenant, lalu bayar dengan saldo |
@@ -730,7 +730,7 @@ Mencetak ulang invoice berdasarkan kode transaksi yang dimasukkan oleh user. Fun
 
 ## 6. 📸 Screenshot Output & Penjelasan
 
-> 📝 **Petunjuk untuk tim:** jalankan program, ambil screenshot tiap tampilan, simpan di folder `docs/screenshots/` dengan nama file seperti di bawah, lalu gambar akan muncul otomatis. Hapus petunjuk ini setelah semua screenshot terpasang.
+> 📝 **Petunjuk untuk tim:** Jalankan program, ambil screenshot tiap tampilan, simpan di folder `docs/screenshots/` dengan nama file seperti di bawah, lalu gambar akan muncul otomatis. Hapus petunjuk ini setelah semua screenshot terpasang.
 
 ### 6.1 Menu Utama
 
@@ -826,26 +826,43 @@ Mencetak ulang invoice berdasarkan kode transaksi yang dimasukkan oleh user. Fun
 
 ## 7. 🚀 Cara Menjalankan Program
 
+### 1. Clone Repositori
+
 ```bash
-# 1. Clone repositori
 git clone https://github.com/APASrah/PA-APASrah.git
 cd PA-APASrah
+```
 
-# 2. Pasang library
+### 2. Pasang Library
+
+```bash
 pip install prettytable pwinput
+```
 
-# 3. Jalankan
+### 3. Jalankan Program
+
+```bash
 python main.py
 ```
 
+### Penyimpanan Data
+
 Program membaca data dari folder `C:\ApasProjek`. Pastikan `users.json` dan `tenant.json` ada di folder tersebut (ubah variabel `folder_data` jika ingin lokasi lain). `transaksi.json` dan folder `invoice` dibuat otomatis.
 
-Contoh `users.json`:
+### Contoh `users.json`
 
 ```json
 {
-    "admin": { "password": "ganti_password_ini", "role": "admin", "saldo": 0 },
-    "budi":  { "password": "rahasia123", "role": "user", "saldo": 0 }
+    "admin": {
+        "password": "ganti_password_ini",
+        "role": "admin",
+        "saldo": 0
+    },
+    "budi": {
+        "password": "rahasia123",
+        "role": "user",
+        "saldo": 0
+    }
 }
 ```
 
