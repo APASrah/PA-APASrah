@@ -18,9 +18,10 @@
 2. [Anggota & Peran](#2-anggota--peran)
 3. [Deskripsi & Tujuan](#3-deskripsi--tujuan)
 4. [Flowchart](#4-flowchart)
-5. [Daftar Fitur per Role](#5-daftar-fitur-per-role)
-6. [Screenshot Output & Penjelasan](#6-screenshot-output--penjelasan)
-7. [Cara Menjalankan Program](#7-cara-menjalankan-program)
+5. [Kode dan Penjelasan](#5-Kode--dan--Penjelasan)
+6. [Daftar Fitur per Role](#5-daftar-fitur-per-role)
+7. [Screenshot Output & Penjelasan](#6-screenshot-output--penjelasan)
+8. [Cara Menjalankan Program](#7-cara-menjalankan-program)
 
 ---
 
@@ -593,7 +594,1400 @@ Fungsi `cetak_ulang_invoice(username, role)` digunakan untuk mencetak ulang invo
 
 ---
 
-## 5. 📋 Daftar Fitur per Role
+# SISTEM RESERVASI TENANT BAZAR
+
+## 1. Deskripsi Program
+
+Sistem Reservasi Tenant Bazar merupakan aplikasi berbasis Python yang digunakan untuk mengelola penyewaan lapak atau tenant bazar secara terkomputerisasi melalui terminal atau Command Prompt.
+
+Program ini dibuat untuk mempermudah proses pengelolaan data tenant, pemesanan lapak, pembayaran menggunakan saldo e-money, pengelolaan stok, serta pencatatan riwayat transaksi.
+
+Sistem memiliki dua jenis pengguna, yaitu **Admin** dan **User**. Admin bertugas mengelola data tenant dan memantau transaksi, sedangkan user dapat melihat tenant yang tersedia, melakukan top up saldo, menyewa lapak, serta melihat riwayat transaksi dan invoice.
+
+Seluruh data program disimpan menggunakan file JSON sehingga informasi akun, tenant, dan transaksi dapat digunakan kembali ketika program dijalankan.
+
+## 2. Tujuan Program
+
+Tujuan pembuatan Sistem Reservasi Tenant Bazar adalah:
+
+1. Mempermudah pengelolaan data tenant bazar.
+2. Mempermudah pengguna dalam mencari dan memesan lapak.
+3. Menerapkan sistem pembayaran menggunakan saldo e-money.
+4. Mengelola stok lapak secara otomatis berdasarkan jumlah reservasi.
+5. Menyimpan riwayat transaksi secara terstruktur.
+6. Menyediakan invoice sebagai bukti transaksi reservasi.
+7. Membantu admin memantau pendapatan dan jumlah lapak yang disewa.
+
+## 3. Fitur Program
+
+### 3.1 Fitur Admin
+
+Admin memiliki akses untuk mengelola seluruh data dan aktivitas utama dalam sistem.
+
+| No. | Fitur | Penjelasan |
+|---|---|---|
+| 1 | Login Admin | Masuk ke sistem menggunakan akun admin. |
+| 2 | Tambah Tenant | Menambahkan data tenant baru. |
+| 3 | Tampilkan Tenant | Melihat seluruh data tenant yang tersedia. |
+| 4 | Ubah Tenant | Mengubah nama, kategori, harga, dan stok lapak induk. |
+| 5 | Hapus Tenant | Menghapus data tenant beserta tenant hasil sewa yang terhubung jika yang dihapus adalah lapak induk. |
+| 6 | Riwayat Transaksi | Melihat seluruh transaksi yang dilakukan pengguna. |
+| 7 | Cetak Ulang Invoice | Mencetak kembali invoice transaksi reservasi. |
+| 8 | Laporan Ringkas | Melihat total pendapatan, jumlah transaksi reservasi, dan tenant terlaris. |
+| 9 | Tambah Saldo User | Menambahkan saldo e-money ke akun pengguna. |
+| 10 | Logout | Keluar dari akun admin. |
+
+### 3.2 Fitur User
+
+User dapat melakukan aktivitas penyewaan tenant dan transaksi secara mandiri.
+
+| No. | Fitur | Penjelasan |
+|---|---|---|
+| 1 | Registrasi | Membuat akun pengguna baru. |
+| 2 | Login User | Masuk menggunakan username dan password. |
+| 3 | Tampilkan Tenant | Melihat daftar tenant, kategori, harga, stok, dan status. |
+| 4 | Top Up Saldo | Mengisi saldo e-money dengan nominal yang ditentukan. |
+| 5 | Reservasi Tenant | Memesan satu atau beberapa lapak dalam satu transaksi. |
+| 6 | Pembayaran | Membayar biaya reservasi menggunakan saldo e-money. |
+| 7 | Riwayat Transaksi | Melihat transaksi milik akun sendiri. |
+| 8 | Invoice | Mendapatkan bukti pembayaran reservasi dalam bentuk file teks. |
+| 9 | Cetak Ulang Invoice | Mencetak kembali invoice berdasarkan kode transaksi. |
+| 10 | Logout | Keluar dari akun pengguna. |
+
+## 4. Teknologi dan Library yang Digunakan
+
+Program dibuat menggunakan bahasa pemrograman Python dengan beberapa library pendukung.
+
+| No. | Library | Kegunaan |
+|---|---|---|
+| 1 | `os` | Mengelola folder, lokasi file, dan membersihkan layar terminal. |
+| 2 | `time` | Memberikan jeda waktu dalam program. |
+| 3 | `json` | Membaca dan menyimpan data dalam format JSON. |
+| 4 | `random` | Menghasilkan angka acak untuk kode transaksi. |
+| 5 | `datetime` | Mengambil tanggal dan waktu transaksi. |
+| 6 | `prettytable` | Menampilkan data dalam bentuk tabel. |
+| 7 | `pwinput` | Menyembunyikan password ketika dimasukkan pengguna. |
+
+Library `os`, `time`, `json`, `random`, dan `datetime` merupakan library bawaan Python. Sementara itu, `prettytable` dan `pwinput` perlu diinstal terlebih dahulu.
+
+## 5. Struktur Folder dan File
+
+Program menggunakan folder `C:\ApasProjek` sebagai lokasi penyimpanan data.
+
+```text
+C:\ApasProjek
+│
+├── main.py
+│
+├── users.json
+│
+├── tenant.json
+│
+├── transaksi.json
+│
+└── invoice
+    ├── TRX-261103201530-482.txt
+    ├── TRX-261103201645-731.txt
+    └── ...
+```
+
+**Penjelasan setiap file:**
+
+| File/Folder | Fungsi |
+|---|---|
+| `main.py` | File utama yang berisi seluruh kode program Python. |
+| `users.json` | Menyimpan informasi akun pengguna, password, role, dan saldo. |
+| `tenant.json` | Menyimpan data tenant, kategori, harga, stok, status, dan informasi penyewa. |
+| `transaksi.json` | Menyimpan seluruh riwayat transaksi. |
+| `invoice` | Folder untuk menyimpan invoice reservasi dalam format `.txt`. |
+
+**Catatan:** File `users.json` dan `tenant.json` harus tersedia sebelum program dijalankan. File `transaksi.json` akan diinisialisasi sebagai list kosong jika belum tersedia. Folder `invoice` dibuat ketika invoice disimpan.
+
+## 6. Cara Instalasi dan Menjalankan Program
+
+### 6.1 Persiapan
+
+Pastikan komputer sudah memiliki Python. Kemudian siapkan folder proyek sesuai lokasi yang digunakan program.
+
+### 6.2 Instalasi Library
+
+Buka terminal atau Command Prompt, kemudian jalankan perintah berikut:
+
+```bash
+pip install prettytable pwinput
+```
+
+Perintah tersebut digunakan untuk menginstal library yang dibutuhkan oleh program.
+
+### 6.3 Menyiapkan File JSON
+
+Pastikan terdapat file `users.json` dan `tenant.json` di dalam folder `C:\ApasProjek`.
+
+Contoh isi awal `users.json`:
+
+```json
+{
+    "admin": {
+        "password": "admin123",
+        "role": "admin",
+        "saldo": 0
+    },
+    "budi": {
+        "password": "rahasia123",
+        "role": "user",
+        "saldo": 50000
+    }
+}
+```
+
+Contoh isi awal `tenant.json`:
+
+```json
+[
+    {
+        "id": 1,
+        "nama": "Tenant Makanan A",
+        "kategori": [
+            "Makanan"
+        ],
+        "harga": 50000,
+        "stok": 20,
+        "status": "Tersedia"
+    }
+]
+```
+
+Contoh tersebut hanya data awal. Username, password, harga, dan tenant dapat disesuaikan.
+
+### 6.4 Menjalankan Program
+
+Masuk ke folder tempat file Python disimpan, kemudian jalankan:
+
+```bash
+python main.py
+```
+
+Jika nama file Python berbeda, sesuaikan nama file pada perintah tersebut.
+
+### 6.5 Tampilan Awal Program
+
+Ketika program berhasil dijalankan, sistem akan menampilkan menu utama:
+
+```text
+=== SISTEM RESERVASI TENANT BAZAR ===
+
+1. Login
+2. Registrasi
+3. Keluar
+
+Pilih menu:
+```
+
+Pengguna dapat memilih login, melakukan registrasi, atau keluar dari program.
+
+## 7. Penjelasan Kode Program
+
+### 7.1 Import Library
+
+Bagian ini digunakan untuk memanggil library Python yang dibutuhkan oleh program.
+
+```python
+import os
+import time
+import json
+import random
+from datetime import datetime
+from prettytable import PrettyTable
+import pwinput
+```
+
+**Penjelasan:**
+
+- `os`: Mengelola sistem operasi, seperti membersihkan layar dan membuat folder.
+- `time`: Memberikan jeda waktu menggunakan `time.sleep()`.
+- `json`: Membaca dan menyimpan data dalam format JSON.
+- `random`: Menghasilkan angka acak untuk kode transaksi.
+- `datetime`: Mengambil tanggal dan waktu saat transaksi dilakukan.
+- `PrettyTable`: Menampilkan data dalam bentuk tabel.
+- `pwinput`: Menyembunyikan karakter password ketika pengguna melakukan login atau registrasi.
+
+### 7.2 Konfigurasi Folder dan Variabel
+
+Bagian ini menentukan lokasi penyimpanan data serta nilai-nilai yang digunakan dalam program.
+
+```python
+folder_data = r"C:\ApasProjek"
+path_users = folder_data + r"\users.json"
+path_tenants = folder_data + r"\tenant.json"
+path_transaksi = folder_data + r"\transaksi.json"
+folder_invoice = folder_data + r"\invoice"
+
+KATEGORI = ("Makanan", "Minuman", "Fashion", "Kerajinan", "Lainnya")
+MAX_STOK = 20
+MIN_TOPUP = 10000
+MAX_TOPUP = 10000000
+```
+
+**Penjelasan:**
+
+1. `folder_data` menentukan folder utama tempat penyimpanan data program.
+2. `path_users` menunjukkan lokasi file data akun pengguna.
+3. `path_tenants` menunjukkan lokasi file data tenant bazar.
+4. `path_transaksi` menunjukkan lokasi penyimpanan riwayat transaksi.
+5. `folder_invoice` merupakan folder untuk menyimpan invoice transaksi.
+6. `KATEGORI` berisi lima kategori tenant yang tersedia.
+7. `MAX_STOK` menentukan jumlah maksimal stok lapak, yaitu 20.
+8. `MIN_TOPUP` menentukan nominal minimal pengisian saldo sebesar Rp10.000.
+9. `MAX_TOPUP` menentukan nominal maksimal pengisian saldo sebesar Rp10.000.000 per transaksi.
+
+### 7.3 Membaca dan Memuat Data JSON
+
+Bagian ini digunakan untuk mengambil data akun, tenant, dan transaksi dari file JSON.
+
+```python
+try:
+    with open(path_users, "r", encoding="utf-8") as f:
+        users = json.load(f)
+    with open(path_tenants, "r", encoding="utf-8") as f:
+        tenants = json.load(f)
+except FileNotFoundError:
+    print("File data tidak ditemukan! Pastikan users.json dan tenant.json ada.")
+    exit()
+except json.JSONDecodeError:
+    print("Isi file JSON rusak atau kosong!")
+    exit()
+```
+
+**Penjelasan:**
+
+- `open()` digunakan untuk membuka file JSON.
+- `json.load()` membaca isi file dan mengubahnya menjadi struktur data Python.
+- `try` dan `except` digunakan untuk menangani kesalahan ketika file tidak ditemukan atau format JSON tidak valid.
+- Program akan dihentikan apabila file utama tidak dapat dibaca.
+
+Selanjutnya, program membaca file transaksi.
+
+```python
+try:
+    with open(path_transaksi, "r", encoding="utf-8") as f:
+        transaksi = json.load(f)
+except FileNotFoundError:
+    transaksi = []
+except json.JSONDecodeError:
+    print("Isi transaksi.json rusak!")
+    exit()
+```
+
+Jika `transaksi.json` belum tersedia, program akan menggunakan data transaksi awal berupa list kosong. Jika file tersedia, seluruh riwayat transaksi akan dimuat.
+
+### 7.4 Penyesuaian Data Lama
+
+Bagian ini berfungsi menyesuaikan data JSON lama agar tetap sesuai dengan struktur program terbaru.
+
+```python
+for t in tenants:
+    if "kategori" not in t:
+        t["kategori"] = []
+    if "induk" not in t and t.get("stok") is None:
+        t["stok"] = MAX_STOK
+    if "status" not in t:
+        t["status"] = "Tersedia"
+```
+
+**Penjelasan:**
+
+1. Memeriksa apakah data tenant sudah memiliki atribut kategori.
+2. Memberikan stok maksimal kepada lapak induk lama yang belum memiliki nilai stok.
+3. Memberikan status `Tersedia` apabila atribut status belum ada.
+
+Program juga menghubungkan data tenant hasil sewa lama dengan lapak induknya berdasarkan kategori.
+
+```python
+for t in tenants:
+    if "induk" not in t and t["status"] == "Disewa":
+        for p in tenants:
+            if p is not t and "induk" not in p and p["status"] != "Disewa" and p["kategori"] == t["kategori"]:
+                t["induk"] = p["id"]
+                break
+```
+
+Bagian tersebut mencari lapak induk yang memiliki kategori sama dengan tenant hasil sewa. Jika ditemukan, ID lapak induk dimasukkan ke atribut `induk`.
+
+Selanjutnya, program mengambil informasi penyewa dari riwayat transaksi apabila data penyewa belum tersedia.
+
+```python
+for t in tenants:
+    if "induk" in t and "penyewa" not in t:
+        for trx in transaksi:
+            if trx["tipe"] == "Reservasi" and trx["tenant_id"] == t["id"]:
+                t["penyewa"] = trx["username"]
+```
+
+Terakhir, program memastikan setiap akun mempunyai atribut saldo.
+
+```python
+for nama_user in users:
+    if "saldo" not in users[nama_user]:
+        users[nama_user]["saldo"] = 0
+```
+
+### 7.5 Fungsi Pendukung Program
+
+Bagian ini berisi fungsi umum yang digunakan oleh beberapa menu.
+
+#### A. Fungsi `bersihkan_layar()`
+
+```python
+def bersihkan_layar():
+    os.system("cls" if os.name == "nt" else "clear")
+```
+
+Digunakan untuk membersihkan tampilan terminal. Perintah `cls` digunakan pada Windows, sedangkan `clear` digunakan pada sistem operasi selain Windows.
+
+#### B. Fungsi `jeda()`
+
+```python
+def jeda():
+    time.sleep(1.5)
+```
+
+Memberikan jeda selama 1,5 detik agar pesan yang ditampilkan dapat dibaca pengguna sebelum program melanjutkan proses.
+
+#### C. Fungsi `rupiah(angka)`
+
+```python
+def rupiah(angka):
+    return "Rp " + format(angka, ",").replace(",", ".")
+```
+
+Mengubah angka menjadi format mata uang Rupiah. Contohnya, angka `15000` akan ditampilkan menjadi `Rp 15.000`.
+
+#### D. Fungsi `input_angka(pesan, minimal=0)`
+
+```python
+def input_angka(pesan, minimal=0):
+    while True:
+        try:
+            angka = int(input(pesan))
+            if angka < minimal:
+                print("Nilai minimal adalah", minimal)
+            else:
+                return angka
+        except ValueError:
+            print("Input harus angka!")
+```
+
+Digunakan untuk menerima input berupa angka. Jika pengguna memasukkan huruf atau angka di bawah batas minimal, program akan meminta input kembali.
+
+#### E. Fungsi `konfirmasi(pesan)`
+
+```python
+def konfirmasi(pesan):
+    while True:
+        jawab = input(pesan + " (y/n) : ").lower()
+        if jawab == "y":
+            return True
+        if jawab == "n":
+            return False
+        print("Jawab dengan y atau n saja!")
+```
+
+Digunakan untuk meminta persetujuan pengguna sebelum melakukan tindakan tertentu. Jawaban `y` berarti setuju, sedangkan `n` berarti membatalkan.
+
+#### F. Fungsi `simpan_data(nama_file, data)`
+
+```python
+def simpan_data(nama_file, data):
+    with open(nama_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4)
+```
+
+Berfungsi menyimpan data ke file JSON. Parameter `nama_file` menentukan lokasi file, sedangkan `data` merupakan informasi yang akan disimpan. `indent=4` membuat struktur JSON lebih mudah dibaca.
+
+### 7.6 Fungsi Login dan Registrasi
+
+#### A. Fungsi `login()`
+
+```python
+def login():
+    print("\n=== LOGIN ===")
+    percobaan = 0
+    while percobaan < 3:
+        try:
+            username = input("Username : ")
+            password = pwinput.pwinput("Password : ")
+
+            if username in users and users[username]["password"] == password:
+                print("Login berhasil")
+                jeda()
+                return username
+            else:
+                percobaan = percobaan + 1
+                print("Username atau password salah! Sisa percobaan :", 3 - percobaan)
+
+        except KeyboardInterrupt:
+            print("\nProses dibatalkan (dilarang mengisi memakai Ctrl+C)")
+            percobaan = percobaan + 1
+            print("Sisa percobaan :", 3 - percobaan)
+
+    return ""
+```
+
+Fungsi ini digunakan untuk memverifikasi username dan password pengguna. Password dimasukkan menggunakan `pwinput` agar tidak terlihat di terminal.
+
+Pengguna diberikan maksimal tiga kali percobaan login. Jika berhasil, fungsi mengembalikan username. Jika seluruh percobaan gagal, fungsi mengembalikan string kosong.
+
+#### B. Fungsi `registrasi()`
+
+```python
+def registrasi():
+    print("\n=== REGISTRASI ===")
+    try:
+        username = input("Username : ").strip()
+        password = pwinput.pwinput("Password : ")
+
+        if username == "":
+            print("Username tidak boleh kosong!")
+            return
+        if " " in username:
+            print("Username tidak boleh mengandung spasi!")
+            return
+        if username in users:
+            print("Username sudah dipakai!")
+            return
+        if password == "":
+            print("Password tidak boleh kosong!")
+            return
+        users[username] = {"password": password, "role": "user", "saldo": 0}
+        simpan_data(path_users, users)
+        print("Registrasi berhasil! Silakan login.")
+    except KeyboardInterrupt:
+        print("\nProses registrasi dibatalkan (dilarang mengisi memakai Ctrl+C)")
+```
+
+Fungsi registrasi digunakan untuk membuat akun pengguna baru. Program melakukan beberapa validasi, yaitu username tidak boleh kosong, tidak boleh mengandung spasi, tidak boleh digunakan akun lain, dan password tidak boleh kosong.
+
+Jika semua persyaratan terpenuhi, akun baru disimpan dengan role `user` dan saldo awal `0`.
+
+### 7.7 Fungsi Pengelolaan Kategori dan Tenant
+
+#### A. Fungsi `pilih_kategori()`
+
+```python
+def pilih_kategori():
+    print("1. Makanan  2. Minuman  3. Fashion  4. Kerajinan  5. Lainnya")
+    while True:
+        nomor = input_angka("Pilih kategori (1-5) : ")
+        if 1 <= nomor <= 5:
+            return KATEGORI[nomor - 1]
+        print("Nomor tidak ada.")
+```
+
+Menampilkan lima pilihan kategori tenant. Pengguna memilih kategori melalui nomor 1 sampai 5. Program mengembalikan nama kategori sesuai nomor yang dipilih.
+
+#### B. Fungsi `format_kategori(kategori)`
+
+```python
+def format_kategori(kategori):
+    if isinstance(kategori, list):
+        return ", ".join(kategori) if kategori else "-"
+    return kategori if kategori else "-"
+```
+
+Mengubah data kategori menjadi teks agar mudah ditampilkan. Jika kategori berbentuk list, elemen di dalamnya digabungkan menjadi satu teks.
+
+#### C. Fungsi `buat_id_baru()`
+
+```python
+def buat_id_baru():
+    id_baru = 1
+    for tenant in tenants:
+        if tenant["id"] >= id_baru:
+            id_baru = tenant["id"] + 1
+    return id_baru
+```
+
+Menghasilkan ID tenant baru berdasarkan ID terbesar yang sudah tersedia. Dengan demikian, setiap tenant memiliki ID yang berbeda.
+
+#### D. Fungsi `nama_sudah_ada(nama)`
+
+```python
+def nama_sudah_ada(nama):
+    for t in tenants:
+        if t["nama"].lower() == nama.lower():
+            return True
+    return False
+```
+
+Memeriksa apakah nama tenant sudah digunakan. Perbandingan menggunakan `lower()` sehingga huruf besar dan kecil tidak dianggap berbeda.
+
+#### E. Fungsi `perbarui_status(tenant)`
+
+```python
+def perbarui_status(tenant):
+    if "induk" in tenant:
+        tenant["status"] = "Disewa"
+    elif tenant["stok"] is None or tenant["stok"] > 0:
+        tenant["status"] = "Tersedia"
+    else:
+        tenant["status"] = "Penuh"
+```
+
+Menentukan status tenant berdasarkan jenis dan jumlah stok.
+
+| Kondisi | Status |
+|---|---|
+| Tenant memiliki atribut `induk` | Disewa |
+| Lapak induk memiliki stok lebih dari 0 | Tersedia |
+| Lapak induk tidak memiliki batas stok (`None`) | Tersedia |
+| Stok lapak induk habis | Penuh |
+
+#### F. Fungsi `urutan_tampil(tenant)`
+
+```python
+def urutan_tampil(tenant):
+    induk = tenant
+    if "induk" in tenant:
+        for t in tenants:
+            if t["id"] == tenant["induk"]:
+                induk = t
+    kat = induk["kategori"][0] if induk["kategori"] else ""
+    posisi = KATEGORI.index(kat) if kat in KATEGORI else len(KATEGORI)
+    anak = 1 if "induk" in tenant else 0
+    return (posisi, induk["id"], anak, tenant["id"])
+```
+
+Mengatur urutan tampilan tenant berdasarkan kategori, ID lapak induk, dan ID tenant. Tenant hasil sewa akan ditampilkan di bawah lapak induknya.
+
+#### G. Fungsi `tampilkan_data()`
+
+```python
+def tampilkan_data():
+    daftar = sorted(tenants, key=urutan_tampil)
+    tabel = PrettyTable()
+    tabel.field_names = ["No", "Nama Tenant", "Kategori", "Harga Sewa", "Stok", "Status", "Penyewa"]
+    no = 1
+    for t in daftar:
+        stok = t["stok"] if t["stok"] is not None else "-"
+        tabel.add_row([no, t["nama"], format_kategori(t["kategori"]),
+                    rupiah(t["harga"]), stok, t["status"], t.get("penyewa", "-")])
+        no = no + 1
+    print(tabel)
+    return daftar
+```
+
+Menampilkan seluruh data tenant dalam bentuk tabel menggunakan `PrettyTable`. Data yang ditampilkan meliputi nomor, nama tenant, kategori, harga sewa, stok, status, dan penyewa.
+
+#### H. Fungsi `pilih_tenant(daftar)`
+
+```python
+def pilih_tenant(daftar):
+    nomor = input_angka("Masukkan No tenant : ", 1)
+    if nomor > len(daftar):
+        raise ValueError("Nomor tidak ditemukan!")
+    return daftar[nomor - 1]
+```
+
+Memungkinkan pengguna memilih tenant berdasarkan nomor pada tabel. Jika nomor tidak ditemukan, program menghasilkan `ValueError`.
+
+### 7.8 Fungsi Pengelolaan Data Tenant oleh Admin
+
+#### A. Fungsi `tambah_data()`
+
+```python
+def tambah_data():
+    print("\n=== TAMBAH DATA TENANT ===")
+    nama = input("Nama Tenant : ").strip()
+    if nama == "":
+        print("Nama tidak boleh kosong!")
+        return
+    if nama_sudah_ada(nama):
+        print("Tenant sudah ada!")
+        return
+
+    kategori = pilih_kategori()
+    harga = input_angka("Harga sewa (Rp) : ", 1)
+
+    tenant_baru = {"id": buat_id_baru(), "nama": nama, "kategori": [kategori],
+                "harga": harga, "stok": MAX_STOK, "status": "Tersedia"}
+    perbarui_status(tenant_baru)
+    tenants.append(tenant_baru)
+    simpan_data(path_tenants, tenants)
+    print("Data tenant berhasil ditambahkan!")
+```
+
+Digunakan oleh admin untuk menambahkan lapak baru. Program meminta nama tenant, kategori, dan harga sewa. Nama diperiksa agar tidak kosong atau sama dengan tenant lain.
+
+Tenant baru mendapatkan ID otomatis dan stok awal sebanyak 20 lapak. Setelah itu, data disimpan ke `tenant.json`.
+
+#### B. Fungsi `ubah_data()`
+
+```python
+def ubah_data():
+    print("\n=== UBAH DATA TENANT ===")
+    daftar = tampilkan_data()
+    try:
+        tenant = pilih_tenant(daftar)
+    except ValueError as e:
+        print(e)
+        return
+
+    nama = input("Nama baru : ").strip()
+    if nama == "":
+        print("Nama tidak boleh kosong!")
+        return
+    if nama.lower() != tenant["nama"].lower() and nama_sudah_ada(nama):
+        print("Nama tenant sudah dipakai!")
+        return
+
+    if "induk" in tenant:
+        tenant["nama"] = nama
+        simpan_data(path_tenants, tenants)
+        print("Nama tenant berhasil diubah!")
+        return
+
+    kategori = pilih_kategori()
+    harga = input_angka("Harga sewa baru (Rp) : ", 1)
+    while True:
+        stok = input_angka("Stok lapak baru (0-" + str(MAX_STOK) + ") : ", 0)
+        if stok <= MAX_STOK:
+            break
+        print("Stok maksimal adalah", MAX_STOK, "lapak!")
+
+    tenant["nama"] = nama
+    tenant["kategori"] = [kategori]
+    tenant["harga"] = harga
+    tenant["stok"] = stok
+    perbarui_status(tenant)
+    simpan_data(path_tenants, tenants)
+    print("Data tenant berhasil diubah!")
+```
+
+Digunakan untuk mengubah data tenant yang sudah tersimpan. Admin dapat mengubah nama, kategori, harga, dan stok lapak induk.
+
+Khusus tenant hasil sewa, admin hanya dapat mengubah nama tenant. Hal ini dilakukan agar data penyewaan tetap terhubung dengan lapak induknya.
+
+#### C. Fungsi `hapus_data()`
+
+```python
+def hapus_data():
+    print("\n=== HAPUS DATA TENANT ===")
+    daftar = tampilkan_data()
+    try:
+        tenant = pilih_tenant(daftar)
+    except ValueError as e:
+        print(e)
+        return
+
+    if "induk" not in tenant:
+        print("Peringatan: tenant hasil sewa di bawah lapak ini ikut terhapus.")
+    if not konfirmasi("Yakin ingin menghapus?"):
+        print("Penghapusan dibatalkan.")
+        return
+
+    tenants.remove(tenant)
+    if "induk" not in tenant:
+        sisa = []
+        for t in tenants:
+            if t.get("induk") != tenant["id"]:
+                sisa.append(t)
+        tenants[:] = sisa
+    simpan_data(path_tenants, tenants)
+    print("Tenant", tenant["nama"], "berhasil dihapus!")
+```
+
+Digunakan untuk menghapus data tenant. Sebelum menghapus, program meminta konfirmasi kepada admin.
+
+Jika yang dihapus adalah lapak induk, seluruh tenant hasil sewa yang terhubung dengan lapak tersebut juga akan dihapus. Jika yang dihapus hanya tenant hasil sewa, data lapak induk tetap dipertahankan.
+
+### 7.9 Fungsi E-Money dan Transaksi
+
+#### A. Fungsi `buat_kode()`
+
+```python
+def buat_kode():
+    while True:
+        kode = "TRX-" + datetime.now().strftime("%y%m%d%H%M%S") + "-" + str(random.randint(100, 999))
+        ada = False
+        for t in transaksi:
+            if t["kode"] == kode:
+                ada = True
+        if not ada:
+            return kode
+```
+
+Menghasilkan kode transaksi dengan menggabungkan teks `TRX`, tanggal dan waktu, serta angka acak tiga digit. Program memeriksa kode tersebut agar tidak sama dengan kode transaksi yang sudah tersimpan.
+
+#### B. Fungsi `catat_transaksi()`
+
+```python
+def catat_transaksi(username, tipe, tenant, jumlah, qty, saldo_akhir, nama_usaha="-", kategori="-"):
+    trx = {
+        "kode": buat_kode(),
+        "waktu": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
+        "username": username,
+        "tipe": tipe,
+        "tenant_id": tenant["id"] if tenant else 0,
+        "tenant_nama": tenant["nama"] if tenant else "-",
+        "nama_usaha": nama_usaha,
+        "kategori": kategori,
+        "qty": qty,
+        "jumlah": jumlah,
+        "saldo_akhir": saldo_akhir
+    }
+    transaksi.append(trx)
+    simpan_data(path_transaksi, transaksi)
+    return trx
+```
+
+Digunakan untuk mencatat setiap transaksi yang dilakukan oleh pengguna atau admin. Informasi yang disimpan meliputi kode transaksi, waktu, username, jenis transaksi, ID tenant, nama tenant, nama usaha, kategori, jumlah lapak, nominal transaksi, dan saldo akhir.
+
+Jika transaksi bukan reservasi, informasi tenant akan diisi dengan nilai default.
+
+#### C. Fungsi `top_up(username)`
+
+```python
+def top_up(username):
+    print("\n=== TOP UP SALDO ===")
+    print("Saldo saat ini :", rupiah(users[username]["saldo"]))
+    print("Minimal top up", rupiah(MIN_TOPUP), "- maksimal", rupiah(MAX_TOPUP))
+    nominal = input_angka("Nominal top up (Rp) : ")
+
+    if nominal < MIN_TOPUP:
+        print("Top up minimal", rupiah(MIN_TOPUP), "!")
+        return
+    if nominal > MAX_TOPUP:
+        print("Top up maksimal", rupiah(MAX_TOPUP), "per transaksi!")
+        return
+    if not konfirmasi("Lanjutkan top up " + rupiah(nominal) + "?"):
+        print("Top up dibatalkan.")
+        return
+
+    users[username]["saldo"] = users[username]["saldo"] + nominal
+    simpan_data(path_users, users)
+    trx = catat_transaksi(username, "Top Up", None, nominal, 1, users[username]["saldo"])
+    print("Top up berhasil! Saldo sekarang :", rupiah(users[username]["saldo"]))
+    print("Kode transaksi :", trx["kode"])
+```
+
+Digunakan oleh user untuk menambahkan saldo e-money. Program memeriksa nominal minimal dan maksimal, kemudian meminta konfirmasi sebelum menambahkan saldo.
+
+Setelah saldo berhasil ditambahkan, perubahan disimpan ke `users.json` dan transaksi dicatat ke `transaksi.json`.
+
+#### D. Fungsi `tambah_saldo_user()`
+
+```python
+def tambah_saldo_user():
+    print("\n=== TAMBAH SALDO USER ===")
+    tabel = PrettyTable()
+    tabel.field_names = ["Username", "Saldo"]
+    for nama in users:
+        if users[nama]["role"] == "user":
+            tabel.add_row([nama, rupiah(users[nama]["saldo"])])
+    print(tabel)
+
+    target = input("Username tujuan : ").strip()
+    if target not in users or users[target]["role"] != "user":
+        print("User tidak ditemukan!")
+        return
+
+    print("Minimal", rupiah(MIN_TOPUP), "- maksimal", rupiah(MAX_TOPUP))
+    nominal = input_angka("Nominal saldo (Rp) : ")
+    if nominal < MIN_TOPUP:
+        print("Minimal", rupiah(MIN_TOPUP), "!")
+        return
+    if nominal > MAX_TOPUP:
+        print("Maksimal", rupiah(MAX_TOPUP), "per transaksi!")
+        return
+    if not konfirmasi("Tambah " + rupiah(nominal) + " ke saldo " + target + "?"):
+        print("Dibatalkan.")
+        return
+
+    users[target]["saldo"] = users[target]["saldo"] + nominal
+    simpan_data(path_users, users)
+    trx = catat_transaksi(target, "Top Up Admin", None, nominal, 1, users[target]["saldo"])
+    print("Berhasil! Saldo", target, "sekarang :", rupiah(users[target]["saldo"]))
+    print("Kode transaksi :", trx["kode"])
+```
+
+Digunakan admin untuk menambahkan saldo ke akun user tertentu. Program menampilkan daftar pengguna beserta saldo, memvalidasi username tujuan dan nominal, lalu meminta konfirmasi.
+
+Transaksi dicatat dengan tipe `Top Up Admin` agar dapat dibedakan dari top up yang dilakukan langsung oleh user.
+
+### 7.10 Fungsi Reservasi dan Pembayaran
+
+#### Fungsi `reservasi_tenant(username)`
+
+```python
+def reservasi_tenant(username):
+    print("\n=== RESERVASI & PEMBAYARAN TENANT ===")
+    daftar = tampilkan_data()
+    print("Saldo Anda :", rupiah(users[username]["saldo"]))
+    try:
+        lapak = pilih_tenant(daftar)
+    except ValueError as e:
+        print(e)
+        return
+```
+
+Bagian awal fungsi menampilkan daftar tenant, saldo pengguna, dan meminta pengguna memilih lapak yang ingin disewa.
+
+Program kemudian memeriksa apakah lapak dapat dipesan.
+
+```python
+if "induk" in lapak or lapak["stok"] is None or lapak["stok"] <= 0:
+    print("Lapak ini tidak bisa dipesan (sudah disewa / stok habis)!")
+    return
+```
+
+Lapak hasil sewa tidak dapat dipesan kembali. Lapak induk juga tidak dapat dipesan jika stoknya habis atau tidak memiliki stok yang dapat digunakan.
+
+Selanjutnya, program meminta jumlah lapak dan nama usaha penyewa.
+
+```python
+while True:
+    qty = input_angka("Jumlah lapak yang diinginkan (1-" + str(lapak["stok"]) + ") : ", 1)
+    if qty <= lapak["stok"]:
+        break
+    print("Stok tersisa hanya", lapak["stok"], "lapak!")
+
+while True:
+    nama_baru = input("Nama tenant Anda : ").strip()
+    if nama_baru == "":
+        print("Nama tenant tidak boleh kosong!")
+        continue
+    if nama_sudah_ada(nama_baru):
+        print("Nama tenant sudah dipakai!")
+        continue
+    break
+```
+
+Jumlah lapak harus lebih dari nol dan tidak boleh melebihi stok yang tersedia. Nama usaha juga harus diisi dan tidak boleh sama dengan nama tenant yang sudah ada.
+
+Program menghitung total biaya sewa.
+
+```python
+total = lapak["harga"] * qty
+```
+
+Jika saldo pengguna tidak mencukupi, reservasi dibatalkan dan pengguna diminta melakukan top up terlebih dahulu.
+
+```python
+if users[username]["saldo"] < total:
+    kurang = total - users[username]["saldo"]
+    print("Saldo tidak cukup! Kurang", rupiah(kurang), "- silakan top up dulu.")
+    return
+```
+
+Jika saldo mencukupi dan pengguna menyetujui pembayaran, stok lapak induk dikurangi sesuai jumlah yang dipesan.
+
+```python
+lapak["stok"] -= qty
+perbarui_status(lapak)
+```
+
+Program kemudian membuat data tenant baru yang terhubung dengan lapak induk melalui atribut `induk`.
+
+```python
+tenant_baru = {
+    "id": buat_id_baru(),
+    "nama": nama_baru,
+    "kategori": list(kategori),
+    "harga": lapak["harga"],
+    "stok": qty,
+    "status": "Disewa",
+    "induk": lapak["id"],
+    "penyewa": username
+}
+tenants.append(tenant_baru)
+```
+
+Setelah data tenant dibuat, saldo pengguna dikurangi dan seluruh perubahan disimpan.
+
+```python
+users[username]["saldo"] -= total
+simpan_data(path_users, users)
+simpan_data(path_tenants, tenants)
+```
+
+Terakhir, program mencatat transaksi dan mencetak invoice.
+
+```python
+trx = catat_transaksi(username, "Reservasi", tenant_baru, total, qty,
+                    users[username]["saldo"], nama_baru, format_kategori(kategori))
+print("\nPembayaran berhasil!\n")
+cetak_invoice(trx)
+```
+
+**Kesimpulan fungsi:** `reservasi_tenant()` mengatur seluruh proses penyewaan, mulai dari pemilihan lapak, validasi stok, pengisian nama usaha, perhitungan biaya, pengecekan saldo, pengurangan stok, penyimpanan data, pencatatan transaksi, hingga pencetakan invoice.
+
+### 7.11 Fungsi Invoice dan Riwayat Transaksi
+
+#### A. Fungsi `cetak_invoice(trx)`
+
+```python
+def cetak_invoice(trx):
+    garis = "=" * 44
+    baris = [
+        garis,
+        "        INVOICE RESERVASI TENANT BAZAR",
+        garis,
+        "Kode Transaksi : " + trx["kode"],
+        "Waktu          : " + trx["waktu"],
+        "Pelanggan      : " + trx["username"],
+        "-" * 44,
+        "Tenant         : " + trx["tenant_nama"],
+        "Nama Usaha     : " + trx.get("nama_usaha", "-"),
+        "Kategori       : " + trx.get("kategori", "-"),
+        "Jumlah Lapak   : " + str(trx["qty"]),
+        "Total Bayar    : " + rupiah(trx["jumlah"]),
+        "Sisa Saldo     : " + rupiah(trx["saldo_akhir"]),
+        garis,
+        "   Terima kasih telah melakukan reservasi",
+        garis
+    ]
+```
+
+Fungsi ini menyusun informasi transaksi menjadi invoice yang berisi kode transaksi, waktu, pelanggan, tenant, nama usaha, kategori, jumlah lapak, total pembayaran, dan saldo akhir.
+
+Invoice ditampilkan di terminal dan disimpan sebagai file `.txt`.
+
+```python
+try:
+    os.makedirs(folder_invoice, exist_ok=True)
+    nama_file = folder_invoice + "\\" + trx["kode"] + ".txt"
+    with open(nama_file, "w", encoding="utf-8") as f:
+        f.write("\n".join(baris))
+    print("Invoice tersimpan di :", nama_file)
+except OSError:
+    print("Invoice gagal disimpan ke file, tetapi transaksi tetap tercatat.")
+```
+
+`os.makedirs()` membuat folder invoice apabila belum tersedia. Nama file menggunakan kode transaksi sehingga setiap invoice memiliki nama yang berbeda.
+
+#### B. Fungsi `tampilkan_riwayat(username, semua)`
+
+```python
+def tampilkan_riwayat(username, semua):
+    tabel = PrettyTable()
+    tabel.field_names = ["Kode", "Waktu", "User", "Tipe", "Tenant", "Nama Usaha", "Qty", "Jumlah", "Saldo Akhir"]
+    ada = False
+    for t in transaksi:
+        if semua or t["username"] == username:
+            tabel.add_row([t["kode"], t["waktu"], t["username"], t["tipe"], t["tenant_nama"],
+                        t.get("nama_usaha", "-"), t["qty"], rupiah(t["jumlah"]), rupiah(t["saldo_akhir"])])
+            ada = True
+    if ada:
+        print(tabel)
+    else:
+        print("Belum ada riwayat transaksi.")
+    return ada
+```
+
+Digunakan untuk menampilkan riwayat transaksi dalam bentuk tabel.
+
+Parameter `username` menentukan akun yang sedang mengakses menu, sedangkan parameter `semua` menentukan cakupan data:
+
+- `semua=True`: admin dapat melihat seluruh riwayat transaksi.
+- `semua=False`: user hanya dapat melihat transaksi miliknya sendiri.
+
+Fungsi mengembalikan nilai `True` jika terdapat transaksi dan `False` jika belum ada transaksi.
+
+#### C. Fungsi `cetak_ulang_invoice(username, semua)`
+
+```python
+def cetak_ulang_invoice(username, semua):
+    kode = input("Masukkan kode transaksi : ").strip()
+    for t in transaksi:
+        if t["kode"] == kode:
+            if t["tipe"] != "Reservasi":
+                print("Invoice hanya tersedia untuk transaksi reservasi.")
+                return
+            if not semua and t["username"] != username:
+                print("Transaksi tidak ditemukan!")
+                return
+            cetak_invoice(t)
+            return
+    print("Transaksi tidak ditemukan!")
+```
+
+Digunakan untuk mencetak ulang invoice berdasarkan kode transaksi.
+
+Program hanya mengizinkan pencetakan invoice untuk transaksi bertipe `Reservasi`. Transaksi top up tidak memiliki invoice reservasi.
+
+Admin dapat mencetak ulang invoice dari seluruh transaksi reservasi, sedangkan user hanya dapat mencetak invoice miliknya sendiri.
+
+#### D. Fungsi `riwayat_dan_invoice(username, semua)`
+
+```python
+def riwayat_dan_invoice(username, semua):
+    print("\n=== RIWAYAT TRANSAKSI ===")
+    ada = tampilkan_riwayat(username, semua)
+    if ada and konfirmasi("\nCetak ulang invoice?"):
+        cetak_ulang_invoice(username, semua)
+```
+
+Menggabungkan tampilan riwayat transaksi dan fitur cetak ulang invoice dalam satu menu. Setelah riwayat ditampilkan, program menawarkan pilihan untuk mencetak ulang invoice apabila terdapat transaksi.
+
+### 7.12 Fungsi Laporan Admin
+
+#### Fungsi `laporan_admin()`
+
+```python
+def laporan_admin():
+    print("\n=== LAPORAN RINGKAS ===")
+    total_pendapatan = 0
+    jumlah_transaksi = 0
+    penjualan = {}
+
+    for t in transaksi:
+        if t["tipe"] == "Reservasi":
+            total_pendapatan = total_pendapatan + t["jumlah"]
+            jumlah_transaksi = jumlah_transaksi + 1
+            nama = t["tenant_nama"]
+            if nama in penjualan:
+                penjualan[nama] = penjualan[nama] + t["qty"]
+            else:
+                penjualan[nama] = t["qty"]
+```
+
+Fungsi ini digunakan untuk membuat laporan ringkas bagi admin. Program membaca seluruh data transaksi, tetapi hanya menghitung transaksi dengan tipe `Reservasi`.
+
+Informasi yang dihitung meliputi:
+
+1. Total pendapatan dari seluruh reservasi.
+2. Jumlah transaksi reservasi.
+3. Jumlah lapak yang dipesan untuk setiap tenant.
+4. Tenant dengan jumlah lapak yang paling banyak dipesan.
+
+Bagian berikut menampilkan hasil perhitungan.
+
+```python
+print("Total pendapatan  :", rupiah(total_pendapatan))
+print("Jumlah transaksi  :", jumlah_transaksi, "(reservasi)")
+```
+
+Jika belum terdapat transaksi reservasi, program menampilkan informasi bahwa data tenant terlaris belum tersedia.
+
+Selanjutnya, program mencari tenant dengan jumlah lapak dipesan terbanyak dan menampilkannya dalam tabel menggunakan `PrettyTable`.
+
+### 7.13 Menu Admin
+
+#### Fungsi `menu_admin(username)`
+
+```python
+def menu_admin(username):
+    try:
+        while True:
+            bersihkan_layar()
+            print("\n=== MENU ADMIN -", username, "===")
+            print("1. Tambah data tenant")
+            print("2. Tampilkan data tenant")
+            print("3. Ubah data tenant")
+            print("4. Hapus data tenant")
+            print("5. Riwayat transaksi & cetak ulang invoice")
+            print("6. Laporan ringkas")
+            print("7. Tambah saldo user")
+            print("8. Logout")
+            pilihan = input("Pilih menu: ")
+```
+
+Fungsi ini menampilkan menu khusus admin setelah proses login berhasil. Admin memiliki delapan pilihan menu.
+
+| Pilihan | Menu | Fungsi |
+|---|---|---|
+| 1 | Tambah data tenant | Menambahkan lapak baru. |
+| 2 | Tampilkan data tenant | Melihat seluruh data tenant. |
+| 3 | Ubah data tenant | Mengubah informasi tenant. |
+| 4 | Hapus data tenant | Menghapus tenant dari sistem. |
+| 5 | Riwayat transaksi & cetak ulang invoice | Melihat seluruh transaksi dan mencetak ulang invoice reservasi. |
+| 6 | Laporan ringkas | Melihat pendapatan dan tenant terlaris. |
+| 7 | Tambah saldo user | Menambahkan saldo ke akun pengguna. |
+| 8 | Logout | Keluar dari akun admin. |
+
+Pemilihan menu diproses menggunakan percabangan `if`, `elif`, dan `else`. Setiap pilihan akan memanggil fungsi yang sesuai.
+
+### 7.14 Menu User
+
+#### Fungsi `menu_user(username)`
+
+```python
+def menu_user(username):
+    try:
+        while True:
+            bersihkan_layar()
+            print("\n=== MENU USER -", username, "===")
+            print("1. Tampilkan data tenant")
+            print("2. Top up saldo")
+            print("3. Reservasi & bayar tenant")
+            print("4. Riwayat transaksi & cetak ulang invoice")
+            print("5. Logout")
+            pilihan = input("Pilih menu: ")
+```
+
+Fungsi ini menampilkan menu khusus user setelah login berhasil.
+
+| Pilihan | Menu | Fungsi |
+|---|---|---|
+| 1 | Tampilkan data tenant | Melihat daftar lapak dan stok yang tersedia. |
+| 2 | Top up saldo | Mengisi saldo e-money. |
+| 3 | Reservasi & bayar tenant | Memesan lapak dan melakukan pembayaran. |
+| 4 | Riwayat transaksi & cetak ulang invoice | Melihat transaksi pribadi dan mencetak ulang invoice reservasi. |
+| 5 | Logout | Keluar dari akun user. |
+
+Setiap pilihan menu akan memanggil fungsi yang sesuai. User hanya dapat mengakses data dan transaksi miliknya sendiri melalui menu yang disediakan.
+
+### 7.15 Program Utama
+
+#### Fungsi `main()`
+
+```python
+def main():
+    try:
+        while True:
+            bersihkan_layar()
+            print("\n=== SISTEM RESERVASI TENANT BAZAR ===")
+            print("1. Login")
+            print("2. Registrasi")
+            print("3. Keluar")
+            pilihan = input("Pilih menu: ")
+```
+
+Fungsi `main()` merupakan bagian utama yang menjalankan seluruh sistem. Program menampilkan tiga pilihan menu, yaitu login, registrasi, dan keluar.
+
+Jika pengguna memilih login, program memanggil fungsi `login()` untuk memeriksa akun.
+
+```python
+if pilihan == "1":
+    username = login()
+    if username == "":
+        print("Login gagal 3 kali. Program berhenti.")
+        break
+    if users[username]["role"] == "admin":
+        menu_admin(username)
+    else:
+        menu_user(username)
+```
+
+Setelah login berhasil, program memeriksa atribut `role` pada akun pengguna.
+
+- Jika role bernilai `admin`, program menjalankan `menu_admin()`.
+- Jika role bukan admin, program menjalankan `menu_user()`.
+
+Jika pengguna memilih registrasi, program memanggil fungsi `registrasi()` untuk membuat akun baru. Jika memilih keluar, program menghentikan perulangan dan menampilkan pesan terima kasih.
+
+Bagian terakhir merupakan perintah untuk menjalankan program utama.
+
+```python
+main()
+```
+
+Dengan pemanggilan tersebut, seluruh proses program dimulai dari menu utama hingga pengguna keluar dari sistem.
+
+## 8. Struktur Data JSON
+
+Program menggunakan tiga file JSON sebagai tempat penyimpanan data utama.
+
+### 8.1 File `users.json`
+
+File ini menyimpan informasi akun pengguna.
+
+Contoh:
+
+```json
+{
+    "admin": {
+        "password": "admin123",
+        "role": "admin",
+        "saldo": 0
+    },
+    "budi": {
+        "password": "rahasia123",
+        "role": "user",
+        "saldo": 50000
+    }
+}
+```
+
+**Keterangan atribut:**
+
+| Atribut | Fungsi |
+|---|---|
+| `password` | Menyimpan password akun. |
+| `role` | Menentukan jenis akun, yaitu admin atau user. |
+| `saldo` | Menyimpan saldo e-money pengguna. |
+
+### 8.2 File `tenant.json`
+
+File ini menyimpan data lapak induk dan tenant hasil reservasi.
+
+Contoh lapak induk:
+
+```json
+[
+    {
+        "id": 1,
+        "nama": "Tenant Makanan A",
+        "kategori": [
+            "Makanan"
+        ],
+        "harga": 50000,
+        "stok": 20,
+        "status": "Tersedia"
+    }
+]
+```
+
+Contoh tenant hasil reservasi:
+
+```json
+[
+    {
+        "id": 2,
+        "nama": "Warung Budi",
+        "kategori": [
+            "Makanan"
+        ],
+        "harga": 50000,
+        "stok": 2,
+        "status": "Disewa",
+        "induk": 1,
+        "penyewa": "budi"
+    }
+]
+```
+
+**Keterangan atribut:**
+
+| Atribut | Fungsi |
+|---|---|
+| `id` | ID unik setiap tenant. |
+| `nama` | Nama tenant atau nama usaha penyewa. |
+| `kategori` | Kategori tenant. |
+| `harga` | Harga sewa lapak. |
+| `stok` | Jumlah lapak yang tersedia atau jumlah lapak yang dipesan. |
+| `status` | Status tenant, seperti Tersedia, Disewa, atau Penuh. |
+| `induk` | ID lapak induk yang menjadi sumber reservasi. |
+| `penyewa` | Username pengguna yang melakukan reservasi. |
+
+Atribut `induk` dan `penyewa` digunakan pada data tenant hasil reservasi.
+
+### 8.3 File `transaksi.json`
+
+File ini menyimpan seluruh aktivitas transaksi.
+
+Contoh:
+
+```json
+[
+    {
+        "kode": "TRX-261103201530-482",
+        "waktu": "03-11-2026 20:15:30",
+        "username": "budi",
+        "tipe": "Reservasi",
+        "tenant_id": 2,
+        "tenant_nama": "Warung Budi",
+        "nama_usaha": "Warung Budi",
+        "kategori": "Makanan",
+        "qty": 2,
+        "jumlah": 100000,
+        "saldo_akhir": 50000
+    }
+]
+```
+
+**Keterangan atribut:**
+
+| Atribut | Fungsi |
+|---|---|
+| `kode` | Kode unik transaksi. |
+| `waktu` | Tanggal dan waktu transaksi. |
+| `username` | Akun yang melakukan transaksi. |
+| `tipe` | Jenis transaksi, misalnya Reservasi, Top Up, atau Top Up Admin. |
+| `tenant_id` | ID tenant yang berkaitan dengan transaksi. |
+| `tenant_nama` | Nama tenant. |
+| `nama_usaha` | Nama usaha yang digunakan penyewa. |
+| `kategori` | Kategori tenant. |
+| `qty` | Jumlah lapak dalam transaksi. |
+| `jumlah` | Nominal transaksi. |
+| `saldo_akhir` | Saldo setelah transaksi. |
+
+## 9. Aturan dan Validasi Sistem
+
+Program menerapkan beberapa aturan untuk menjaga proses pengelolaan tenant dan transaksi.
+
+| No. | Aturan | Keterangan |
+|---|---|---|
+| 1 | Login maksimal tiga kali | Pengguna yang gagal login tiga kali akan menghentikan proses program. |
+| 2 | Username unik | Username tidak boleh kosong, mengandung spasi, atau sama dengan akun lain. |
+| 3 | Nama tenant unik | Nama tenant tidak boleh kosong atau sama dengan nama tenant yang sudah tersimpan. |
+| 4 | Harga sewa | Harga sewa harus lebih besar dari nol. |
+| 5 | Stok maksimal | Stok lapak induk maksimal 20. |
+| 6 | Stok reservasi | Jumlah lapak yang dipesan tidak boleh melebihi stok tersedia. |
+| 7 | Top up minimal | Minimal pengisian saldo Rp10.000. |
+| 8 | Top up maksimal | Maksimal pengisian saldo Rp10.000.000 per transaksi. |
+| 9 | Pembayaran | Reservasi hanya dapat dilakukan jika saldo mencukupi. |
+| 10 | Konfirmasi | Top up dan reservasi memerlukan konfirmasi sebelum diproses. |
+| 11 | Riwayat transaksi | User hanya dapat melihat riwayat miliknya sendiri. |
+| 12 | Invoice | Invoice hanya tersedia untuk transaksi reservasi. |
+
+## 10. Alur Kerja Sistem
+
+Secara umum, alur kerja program dapat dijelaskan sebagai berikut:
+
+```text
+                 MULAI
+                   |
+                   v
+          Memuat Data JSON
+                   |
+                   v
+             Menu Utama
+                   |
+          +--------+--------+
+          |        |        |
+          v        v        v
+         Login  Registrasi Keluar
+          |
+          v
+    Validasi Akun
+          |
+     +----+----+
+     |         |
+     v         v
+   Admin      User
+     |         |
+     v         v
+ Menu Admin  Menu User
+     |         |
+     v         v
+ Kelola Data  Top Up Saldo
+ Tenant       Reservasi
+ Laporan      Pembayaran
+ Transaksi    Riwayat
+     |         |
+     +----+----+
+          |
+          v
+    Simpan Data JSON
+          |
+          v
+        Selesai
+```
+
+**Penjelasan alur:**
+
+1. Program dimulai dengan membaca data akun, tenant, dan transaksi.
+2. Pengguna memilih login, registrasi, atau keluar.
+3. Jika login berhasil, sistem memeriksa role akun.
+4. Admin diarahkan ke menu pengelolaan tenant dan laporan.
+5. User diarahkan ke menu penyewaan dan pembayaran.
+6. Setiap perubahan data dan transaksi disimpan ke file JSON.
+7. Setelah pengguna logout atau memilih keluar, proses program berakhir.
+
+
+
+## 11. 📋 Daftar Fitur per Role
 
 ### 🌐 Umum (Tanpa Login)
 
@@ -628,7 +2022,7 @@ Fungsi `cetak_ulang_invoice(username, role)` digunakan untuk mencetak ulang invo
 
 ---
 
-## 6. 📸 Screenshot Output & Penjelasan
+## 12. 📸 Screenshot Output & Penjelasan
 
 > 📝 **Petunjuk untuk tim:** Jalankan program, ambil screenshot setiap tampilan, kemudian simpan di folder `docs/screenshots/` menggunakan nama file seperti di bawah. Pastikan file gambar sudah diunggah ke repositori GitHub agar dapat ditampilkan. Hapus petunjuk ini setelah semua screenshot terpasang.
 
@@ -754,74 +2148,6 @@ Tabel berisi kode, waktu, user, tipe transaksi, tenant, nama usaha, qty, jumlah,
 
 ---
 
-## 7. 🚀 Cara Menjalankan Program
-
-### 1. Clone Repositori
-
-Buka terminal atau Command Prompt, kemudian jalankan perintah berikut:
-
-```bash
-git clone https://github.com/APASrah/PA-APASrah.git
-cd PA-APASrah
-```
-
-### 2. Pasang Library
-
-Program menggunakan library `prettytable` untuk menampilkan tabel dan `pwinput` untuk menyamarkan password ketika diketik.
-
-```bash
-pip install prettytable pwinput
-```
-
-### 3. Jalankan Program
-
-```bash
-python main.py
-```
-
-### Penyimpanan Data
-
-Program membaca data dari folder `C:\ApasProjek`. Pastikan file `users.json` dan `tenant.json` sudah tersedia di folder tersebut.
-
-Jika ingin menggunakan lokasi lain, ubah variabel `folder_data` pada kode program.
-
-File `transaksi.json` dan folder `invoice` dibuat secara otomatis oleh program sesuai implementasinya.
-
-### Contoh Struktur Folder
-
-```text
-C:\
-└── ApasProjek\
-    ├── users.json
-    ├── tenant.json
-    ├── transaksi.json
-    └── invoice\
-        ├── TRX-xxxx.txt
-        └── TRX-yyyy.txt
-```
-
-### Contoh Isi `users.json`
-
-Berikut contoh struktur data akun admin dan user:
-
-```json
-{
-    "admin": {
-        "password": "ganti_password_ini",
-        "role": "admin",
-        "saldo": 0
-    },
-    "budi": {
-        "password": "rahasia123",
-        "role": "user",
-        "saldo": 0
-    }
-}
-```
-
-> **Catatan:** Username dan password di atas hanya contoh. Ganti dengan data akun yang digunakan pada program.
-
----
 
 <div align="center">
 
