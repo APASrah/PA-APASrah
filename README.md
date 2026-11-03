@@ -45,7 +45,7 @@
 | No | Nama | NIM / ID | Peran | Tanggung Jawab | GitHub |
 |:--:|---|---|---|---|---|
 | 1 | **Muhammad Pasha Aditya** | `2609116085` | Ketua Tim | Autentikasi (login & registrasi), error handling, membantu CRUD dasar, membantu revisi flowchart dan laporan | [@MuhammadPashaAditya](https://github.com/MuhammadPashaAditya) |
-| 2 | **Lithalia Geminifer Addawiyah** | `2609116088` | Pengembang Tenant | CRUD data tenant (tambah, tampil, ubah, hapus), menu admin | [@username2](https://github.com/username2) |
+| 2 | **Lithalia Geminifer Addawiyah** | `2609116088` | Flowchart, Laporan | Flowchart, Laporan | [@lithaliageminiferaddawiyah](https://github.com/lithaliageminiferaddawiyah) |
 | 3 | **Muhammad Fahry Praditya** | `2609116104` | Coding, Flowchart, Laporan | Ngoding, Pengembangan dan revisi kode, revisi flowchart, revisi laporan,  | [@muhammadfahrypraditya](https://github.com/muhammadfahrypraditya) |
 | 4 | **Astri Maharani** | `2609116106` | Dokumentasi & Pengujian | Riwayat transaksi, laporan admin, README, pengujian program | [@username4](https://github.com/username4) |
 
