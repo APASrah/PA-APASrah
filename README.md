@@ -2068,7 +2068,7 @@ User memilih lapak, menentukan jumlah, dan memasukkan nama tenant. Program menam
 
 Setelah pembayaran reservasi berhasil, invoice ditampilkan di layar dan disimpan sebagai file `.txt` di folder `invoice`. Invoice berisi kode transaksi, waktu, pelanggan, tenant, kategori, jumlah lapak, total bayar, dan sisa saldo.
 
-### 6.15 Riwayat Transaksi
+### 12.15 Riwayat Transaksi
 
 <img width="1366" height="768" alt="WhatsApp Image 2026-11-03 at 23 24 49" src="https://github.com/user-attachments/assets/0b31247a-2218-451d-9368-d229196182eb" />
 
