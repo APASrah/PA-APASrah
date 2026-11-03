@@ -47,7 +47,7 @@
 | 1 | **Muhammad Pasha Aditya** | `2609116085` | Ketua Tim | Autentikasi (login & registrasi), error handling, membantu CRUD dasar, membantu revisi flowchart dan laporan | [@MuhammadPashaAditya](https://github.com/MuhammadPashaAditya) |
 | 2 | **Lithalia Geminifer Addawiyah** | `2609116088` | Flowchart, Laporan | Flowchart, Laporan | [@lithaliageminiferaddawiyah](https://github.com/lithaliageminiferaddawiyah) |
 | 3 | **Muhammad Fahry Praditya** | `2609116104` | Coding, Flowchart, Laporan | Ngoding, Pengembangan dan revisi kode, revisi flowchart, revisi laporan,  | [@muhammadfahrypraditya](https://github.com/muhammadfahrypraditya) |
-| 4 | **Astri Maharani** | `2609116106` | Dokumentasi & Pengujian | Riwayat transaksi, laporan admin, README, pengujian program | [@username4](https://github.com/username4) |
+| 4 | **Astri Maharani** | `2609116106` | Dokumentasi & Pengujian | Riwayat transaksi, laporan admin, README, pengujian program | [@astrimaharan343-dot](https://github.com/astrimaharan343-dot) |
 
 ---
 
