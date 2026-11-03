@@ -39,7 +39,7 @@
 
 | No | Nama | NIM / ID | Peran | Tanggung Jawab | GitHub |
 |:--:|------|----------|-------|----------------|--------|
-| 1 | **Muhammad Pasha Aditya** | `2609116085` | Ketua Tim | Autentikasi (login & registrasi), Erorr Handling, Membantu CRUD dasar, Membantu revisi Flowchart dan Laporan | [@MuhammadPashaAditya](https://github.com/MuhammadPashaAditya) |
+| 1 | **Muhammad Pasha Aditya** | `2609116085` | Ketua Tim | Autentikasi (login & registrasi), error handling, membantu CRUD dasar, membantu revisi flowchart dan laporan | [@MuhammadPashaAditya](https://github.com/MuhammadPashaAditya) |
 | 2 | **Lithalia Geminifer Addawiyah** | `2609116088` | Pengembang Tenant | CRUD data tenant (tambah, tampil, ubah, hapus), menu admin | [@username2](https://github.com/username2) |
 | 3 | **Muhammad Fahry Praditya** | `2609116104` | Pengembang Transaksi | Top up, reservasi & pembayaran, invoice, menu user | [@username3](https://github.com/username3) |
 | 4 | **Astri Maharani** | `2609116106` | Dokumentasi & Pengujian | Riwayat transaksi, laporan admin, README, pengujian program | [@username4](https://github.com/username4) |
@@ -66,24 +66,20 @@ Setiap lapak induk memiliki kuota maksimal **20 lapak** dan dibagi ke dalam 5 ka
 
 ## 4. 🔀 Flowchart
 
-> Flowchart di bawah ditulis dengan Mermaid, sehingga tampil otomatis di GitHub.
+> Flowchart di bawah ditampilkan dalam bentuk gambar. Klik gambar untuk memperbesar.
 
 ### 4.1 Alur Program Utama
+
 <table>
 <tr>
-<td width="45%" valign="top">
+<td valign="top">
 
-<a href="img/flowchart_awal.png">
-  <img src="https://github.com/user-attachments/assets/da813817-78d5-4118-81bf-b912fe7296c0" />
-
-</a>
-
-<sub>Klik gambar untuk memperbesar</sub>
+<img src="https://github.com/user-attachments/assets/da813817-78d5-4118-81bf-b912fe7296c0" alt="Flowchart alur program utama" width="380">
 
 </td>
-<td width="55%" valign="top">
+<td valign="top">
 
-### Proses Awal (Load Data)
+#### Proses Awal (Load Data)
 
 | No | Proses | Hasil |
 |---|---|---|
@@ -92,7 +88,7 @@ Setiap lapak induk memiliki kuota maksimal **20 lapak** dan dibagi ke dalam 5 ka
 | 3 | Baca `transaksi.json` | Jika belum ada, diisi list kosong |
 | 4 | Inisialisasi data awal | Masuk ke Menu Utama |
 
-### Menu Utama
+#### Menu Utama
 
 | Pilihan | Menu | Aksi |
 |---|---|---|
@@ -101,7 +97,7 @@ Setiap lapak induk memiliki kuota maksimal **20 lapak** dan dibagi ke dalam 5 ka
 | `3` | Keluar | Program selesai |
 | Lainnya | - | "Pilihan tidak valid!" |
 
-### Proses Login (maks. 3 kali)
+#### Proses Login (maks. 3 kali)
 
 | Langkah | Proses |
 |---|---|
@@ -111,7 +107,7 @@ Setiap lapak induk memiliki kuota maksimal **20 lapak** dan dibagi ke dalam 5 ka
 | 4 | Tidak cocok: `percobaan += 1`, tampil sisa percobaan |
 | 5 | Percobaan habis: kembali ke menu utama |
 
-### Proses Registrasi
+#### Proses Registrasi
 
 | Langkah | Proses |
 |---|---|
@@ -128,81 +124,76 @@ Setiap lapak induk memiliki kuota maksimal **20 lapak** dan dibagi ke dalam 5 ka
 
 <table>
 <tr>
-<td width="45%" valign="top">
+<td valign="top">
 
-<a href="img/flowchart_menu_admin.png">
-  <img src="https://github.com/user-attachments/assets/064cadf8-01d1-493c-bbea-befd8b18c481" />
-</a>
-
-<sub>Klik gambar untuk memperbesar</sub>
+<img src="https://github.com/user-attachments/assets/064cadf8-01d1-493c-bbea-befd8b18c481" alt="Flowchart menu admin" width="380">
 
 </td>
-<td width="55%" valign="top">
+<td valign="top">
 
-### Daftar Menu
+#### Daftar Menu
 
-Admin diminta memilih menu (`input pilihan`), lalu program mencocokkan nilainya dengan percabangan.
+Admin memilih menu (`input pilihan`), lalu program mencocokkan nilainya dengan percabangan.
 
 | Pilihan | Menu | Keterangan |
 |---|---|---|
-| `1` | Tambah data tenant | Menambah tenant baru |
+| `1` | Tambah data tenant | Menambah lapak baru |
 | `2` | Tampilkan data tenant | Menampilkan seluruh tenant dalam tabel |
 | `3` | Ubah data tenant | Mengubah data tenant yang sudah ada |
 | `4` | Hapus data tenant | Menghapus tenant setelah konfirmasi |
-| `5` ⚠️ | Riwayat / Transaksi | Lanjut ke flowchart terpisah |
-| `6` ⚠️ | Laporan | Lanjut ke flowchart terpisah |
-| `7` ⚠️ | Top up saldo user | Input username, lalu nominal |
-| `8` ⚠️ | Menu lainnya | Sesuaikan dengan kode |
-| `0` | Logout | Tampil "Logout berhasil", kembali ke menu utama |
+| `5` | Riwayat transaksi & cetak ulang invoice | Lanjut ke flowchart Invoice & Riwayat Transaksi (4.8) |
+| `6` | Laporan ringkas | Lanjut ke flowchart Laporan Ringkas (4.4) |
+| `7` | Tambah saldo user | Admin memilih user, lalu mengisi nominal (Rp 10.000 sampai Rp 10.000.000) |
+| `8` | Logout | Tampil "Logout berhasil", kembali ke menu utama |
 | Lainnya | - | Tampil "Pilihan tidak valid!", jeda, kembali ke menu admin |
 
-### 1. Tambah Data Tenant
+#### 1. Tambah Data Tenant
 
 | Langkah | Proses | Validasi / Hasil |
 |---|---|---|
 | 1 | Input nama tenant | Tidak boleh kosong |
 | 2 | Cek duplikat | Jika nama sudah ada, tampil pesan dan kembali ke menu |
-| 3 | `kategori = pilih_kategori()` | Memilih kategori dari daftar |
+| 3 | `kategori = pilih_kategori()` | Memilih kategori 1 sampai 5 |
 | 4 | `harga = input_angka("Harga sewa (Rp)")` | Harus berupa angka |
-| 5 | `stok = input_angka("Stok lapak")` | Harus berupa angka |
+| 5 | Tentukan stok lapak | Lapak baru berkuota 20 |
 | 6 | Buat ID baru | ID otomatis bertambah 1 |
-| 7 | Simpan ke `tenants.json` | Data tersimpan permanen |
+| 7 | Simpan ke `tenant.json` | Data tersimpan permanen |
 | 8 | Tampil "Tenant berhasil ditambahkan" | Jeda, kembali ke menu admin |
 
-### 2. Tampilkan Data Tenant
+#### 2. Tampilkan Data Tenant
 
 | Langkah | Proses | Hasil |
 |---|---|---|
-| 1 | Panggil `tampilkan_data()` | Data tenant tampil dalam tabel (`PrettyTable`) |
+| 1 | Panggil `tampilkan_data()` | Data tenant tampil dalam tabel (`PrettyTable`), terurut per kategori |
 | 2 | Jika data kosong | Tampil pesan "Data tenant masih kosong" |
 | 3 | Kembali ke menu admin | - |
 
-### 3. Ubah Data Tenant
+#### 3. Ubah Data Tenant
 
 | Langkah | Proses | Validasi / Hasil |
 |---|---|---|
 | 1 | Tampilkan data tenant | Admin melihat daftar tenant |
-| 2 | Input ID/nama tenant yang diubah | Jika tidak ditemukan, tampil pesan error |
-| 3 | Input data baru (nama, kategori, harga, stok) | Angka divalidasi dengan `input_angka()` |
-| 4 | Simpan perubahan ke `tenants.json` | - |
+| 2 | Pilih tenant berdasarkan nomor di tabel | Jika tidak ditemukan, tampil pesan error |
+| 3 | Input data baru (nama, kategori, harga, stok) | Angka divalidasi dengan `input_angka()`, stok tidak boleh melebihi 20 |
+| 4 | Simpan perubahan ke `tenant.json` | Tenant hasil sewa hanya bisa diubah namanya |
 | 5 | Tampil "Data berhasil diubah" | Jeda, kembali ke menu admin |
 
-### 4. Hapus Data Tenant
+#### 4. Hapus Data Tenant
 
 | Langkah | Proses | Validasi / Hasil |
 |---|---|---|
 | 1 | Tampilkan data tenant | - |
-| 2 | Input ID/nama tenant yang dihapus | Jika tidak ditemukan, tampil pesan error |
+| 2 | Pilih tenant berdasarkan nomor di tabel | Jika tidak ditemukan, tampil pesan error |
 | 3 | Konfirmasi hapus (`y/n`) | Jika `n`, tampil "Penghapusan dibatalkan" |
-| 4 | Hapus dari list, simpan ke `tenants.json` | - |
+| 4 | Hapus dari list, simpan ke `tenant.json` | Jika lapak induk dihapus, tenant hasil sewanya ikut terhapus dan peringatan ditampilkan lebih dulu |
 | 5 | Tampil "Tenant berhasil dihapus" | Jeda, kembali ke menu admin |
 
-### Konektor ke Flowchart Lain
+#### Konektor ke Flowchart Lain
 
 | Simbol di flowchart | Arti |
 |---|---|
 | Pentagon hijau (atas) | Titik masuk dari proses login (role `admin`) |
-| Pentagon hijau (menu 5, 6, 8 ⚠️) | Alur dilanjutkan di flowchart fungsi lain |
+| Pentagon hijau (menu 5 dan 6) | Alur dilanjutkan di flowchart fungsi lain |
 | Lingkaran bertanda huruf | Kembali ke awal Menu Admin |
 
 </td>
@@ -213,18 +204,14 @@ Admin diminta memilih menu (`input pilihan`), lalu program mencocokkan nilainya 
 
 <table>
 <tr>
-<td width="45%" valign="top">
+<td valign="top">
 
-<a href="img/flowchart_menu_user.png">
-  <img src="https://github.com/user-attachments/assets/64992ee3-0c81-4b07-8418-80199f1a87b5" />
-</a>
-
-<sub>Klik gambar untuk memperbesar</sub>
+<img src="https://github.com/user-attachments/assets/64992ee3-0c81-4b07-8418-80199f1a87b5" alt="Flowchart menu user" width="380">
 
 </td>
-<td width="55%" valign="top">
+<td valign="top">
 
-### Tampilan Awal
+#### Tampilan Awal
 
 Setelah login dengan role `user`, program menjalankan `bersihkan_layar()` lalu menampilkan header dan menu.
 
@@ -234,18 +221,18 @@ Setelah login dengan role `user`, program menjalankan `bersihkan_layar()` lalu m
 | Saldo | `Saldo: Rp{saldo}` (diambil dari data user yang sedang login) |
 | Input | `input pilihan` |
 
-### Daftar Menu
+#### Daftar Menu
 
 | Pilihan | Menu | Aksi |
 |---|---|---|
 | `1` | Tampilkan data tenant | Menampilkan semua tenant, lalu kembali ke menu user |
-| `2` | Top up saldo | Lanjut ke flowchart Top Up Saldo |
-| `3` | Reservasi & bayar tenant | Lanjut ke flowchart Reservasi dan Pembayaran |
-| `4` | Riwayat transaksi & cetak ulang invoice | Lanjut ke flowchart Riwayat Transaksi |
+| `2` | Top up saldo | Lanjut ke flowchart Top Up Saldo (4.5) |
+| `3` | Reservasi & bayar tenant | Lanjut ke flowchart Reservasi dan Pembayaran (4.6) |
+| `4` | Riwayat transaksi & cetak ulang invoice | Lanjut ke flowchart Invoice & Riwayat Transaksi (4.8) |
 | `5` | Logout | Tampil "Logout berhasil", jeda, kembali ke menu utama |
 | Lainnya | - | Tampil "Pilihan tidak valid!", jeda, kembali ke menu user |
 
-### Detail Menu 1: Tampilkan Data Tenant
+#### Detail Menu 1: Tampilkan Data Tenant
 
 | Langkah | Proses | Hasil |
 |---|---|---|
@@ -253,7 +240,7 @@ Setelah login dengan role `user`, program menjalankan `bersihkan_layar()` lalu m
 | 2 | Tampil "Tekan ENTER untuk kembali..." | Program menunggu input ENTER |
 | 3 | Kembali ke awal menu user | Menu dan saldo ditampilkan ulang |
 
-### Alur Logout (Menu 5)
+#### Alur Logout (Menu 5)
 
 | Langkah | Proses |
 |---|---|
@@ -261,13 +248,13 @@ Setelah login dengan role `user`, program menjalankan `bersihkan_layar()` lalu m
 | 2 | Jeda (`time.sleep`) |
 | 3 | Kembali ke Menu Utama (Login / Registrasi / Keluar) |
 
-### Penjelasan Konektor
+#### Penjelasan Konektor
 
 | Simbol di flowchart | Arti |
 |---|---|
 | Pentagon hijau (atas) | Titik masuk dari proses login (role `user`) |
 | Lingkaran `A` | Kembali ke awal Menu User |
-| Pentagon hijau (menu 2, 3, 4) ⚠️ | Alur berlanjut di flowchart fungsi masing-masing |
+| Pentagon hijau (menu 2, 3, 4) | Alur berlanjut di flowchart fungsi masing-masing |
 | Pentagon hijau (setelah logout) | Kembali ke Menu Utama |
 
 </td>
@@ -278,22 +265,18 @@ Setelah login dengan role `user`, program menjalankan `bersihkan_layar()` lalu m
 
 <table>
 <tr>
-<td width="45%" valign="top">
+<td valign="top">
 
-<a href="img/flowchart_laporan_ringkas.png">
-  <img src="https://github.com/user-attachments/assets/6346f393-37cb-46a6-8bfe-c6aacb93926d" />
-</a>
-
-<sub>Klik gambar untuk memperbesar</sub>
+<img src="https://github.com/user-attachments/assets/6346f393-37cb-46a6-8bfe-c6aacb93926d" alt="Flowchart laporan ringkas" width="380">
 
 </td>
-<td width="55%" valign="top">
+<td valign="top">
 
-### Gambaran Umum
+#### Gambaran Umum
 
 Fitur ini dipanggil dari Menu Admin (konektor `P`). Program membaca seluruh data `transaksi.json`, menghitung total pendapatan dan jumlah transaksi reservasi, lalu menampilkan tenant terlaris.
 
-### Variabel yang Digunakan
+#### Variabel yang Digunakan
 
 | Variabel | Fungsi |
 |---|---|
@@ -301,7 +284,7 @@ Fitur ini dipanggil dari Menu Admin (konektor `P`). Program membaca seluruh data
 | `jumlah` | Jumlah transaksi reservasi |
 | `penjualan` | Penampung qty per tenant (dipakai untuk mencari tenant terlaris dan tabel per tenant) |
 
-### Alur Proses
+#### Alur Proses
 
 | No | Proses | Kondisi | Hasil |
 |---|---|---|---|
@@ -315,38 +298,47 @@ Fitur ini dipanggil dari Menu Admin (konektor `P`). Program membaca seluruh data
 | 6 | Tampilkan ringkasan | - | Tampil total pendapatan dan jumlah transaksi |
 | 7 | Cek `penjualan` kosong | Ya | Tampil "Data belum ada", kembali ke Menu Admin |
 | 7 | Cek `penjualan` kosong | Tidak | Lanjut ke langkah 8 |
-| 8 | Cari tenant terlaris | - | Tenant
+| 8 | Cari tenant terlaris | - | Tenant dengan qty terbanyak dipilih |
+| 9 | Tampilkan tenant terlaris dan tabel per tenant | - | Hasil tampil dalam tabel (`PrettyTable`), lalu kembali ke Menu Admin |
 
----
-### 4.6 Menu Top Up saldo User
-<table>
-<tr>
-<td width="45%" valign="top">
+#### Penjelasan Konektor
 
-<a href="img/flowchart_topup_saldo.png">
-  <img src="https://github.com/user-attachments/assets/d3f48b1a-3c39-41fd-9c39-64ea2bf36ada" />
-</a>
-
-<sub>Klik gambar untuk memperbesar</sub>
+| Simbol di flowchart | Arti |
+|---|---|
+| Pentagon hijau `P` (atas) | Titik masuk dari Menu Admin |
+| Lingkaran `A` | Titik kembali ke bagian sebelumnya dalam alur laporan |
+| Pentagon hijau `A` (bawah) | Kembali ke Menu Admin |
 
 </td>
-<td width="55%" valign="top">
+</tr>
+</table>
 
-### Gambaran Umum
+### 4.5 Top Up Saldo (User)
+
+<table>
+<tr>
+<td valign="top">
+
+<img src="https://github.com/user-attachments/assets/d3f48b1a-3c39-41fd-9c39-64ea2bf36ada" alt="Flowchart top up saldo" width="380">
+
+</td>
+<td valign="top">
+
+#### Gambaran Umum
 
 Fitur ini dipanggil dari Menu User (pilihan `2`). User mengisi saldo dengan nominal yang dibatasi `MIN_TOPUP` dan `MAX_TOPUP`, lalu transaksi dicatat dengan tipe `Top Up`.
 
-### Variabel dan Konstanta
+#### Variabel dan Konstanta
 
 | Nama | Fungsi |
 |---|---|
-| `MIN_TOPUP` | Batas minimal nominal per top up |
-| `MAX_TOPUP` | Batas maksimal nominal per transaksi top up |
+| `MIN_TOPUP` | Batas minimal nominal per top up (Rp 10.000) |
+| `MAX_TOPUP` | Batas maksimal nominal per transaksi top up (Rp 10.000.000) |
 | `nominal` | Jumlah uang yang diinput user (divalidasi `input_angka()`) |
 | `users[username]['saldo']` | Saldo user yang sedang login |
 | `trx` | Hasil `catat_transaksi()`, berisi data transaksi termasuk `trx['kode']` |
 
-### Alur Proses
+#### Alur Proses
 
 | No | Proses | Kondisi | Hasil |
 |---|---|---|---|
@@ -363,7 +355,7 @@ Fitur ini dipanggil dari Menu User (pilihan `2`). User mengisi saldo dengan nomi
 | 11 | Tampil "Top up berhasil!" | - | Menampilkan saldo sekarang dan kode transaksi |
 | 12 | Tampil "Tekan ENTER untuk kembali..." | - | Menunggu ENTER, lalu kembali ke Menu User |
 
-### Validasi Nominal
+#### Validasi Nominal
 
 | Kondisi | Pesan | Hasil |
 |---|---|---|
@@ -371,7 +363,7 @@ Fitur ini dipanggil dari Menu User (pilihan `2`). User mengisi saldo dengan nomi
 | `nominal > MAX_TOPUP` | Top up maksimal Rp... per transaksi | Ditolak, kembali ke Menu User |
 | `MIN_TOPUP <= nominal <= MAX_TOPUP` | - | Lanjut ke konfirmasi |
 
-### Data yang Dicatat ke Transaksi
+#### Data yang Dicatat ke Transaksi
 
 | Parameter `catat_transaksi` | Nilai | Keterangan |
 |---|---|---|
@@ -382,95 +374,93 @@ Fitur ini dipanggil dari Menu User (pilihan `2`). User mengisi saldo dengan nomi
 | Qty | `1` | Nilai tetap |
 | Saldo | Saldo sesudah top up | Untuk riwayat saldo |
 
-### Penjelasan Konektor
+#### Penjelasan Konektor
 
 | Simbol di flowchart | Arti |
 |---|---|
 | Pentagon hijau `E` (atas) | Titik masuk dari Menu User pilihan `2` |
 | Lingkaran `A` (3 buah di kanan) | Kembali ke awal Menu User (jalur nominal ditolak atau dibatalkan) |
 | Lingkaran `A` (bawah) | Kembali ke awal Menu User setelah ENTER |
-| Pentagon hijau (paling bawah) ⚠️ | Kembali ke Menu User, cek hurufnya agar sama dengan flowchart Menu User |
+| Pentagon hijau (paling bawah) | Kembali ke Menu User |
 
 </td>
 </tr>
 </table>
 
-### 4.7 Reservasi & Pembayaran Tenant (User)
+### 4.6 Reservasi & Pembayaran Tenant (User)
 
 <table>
 <tr>
-<td width="45%" valign="top">
+<td valign="top">
 
-<a href="img/flowchart_reservasi.png">
-  <img src="https://github.com/user-attachments/assets/d5af8391-63bd-4057-bb81-989420c6b539" />
-</a>
-
-<sub>Klik gambar untuk memperbesar</sub>
+<img src="https://github.com/user-attachments/assets/d5af8391-63bd-4057-bb81-989420c6b539" alt="Flowchart reservasi dan pembayaran tenant" width="380">
 
 </td>
-<td width="55%" valign="top">
+<td valign="top">
 
-### Gambaran Umum
+#### Gambaran Umum
 
-Fitur ini dipanggil dari Menu User (pilihan `3`). User memilih tenant berdasarkan ID, menentukan jumlah lapak, lalu membayar memakai saldo. Setelah berhasil, stok tenant berkurang, transaksi dicatat, dan invoice dicetak.
+Fitur ini dipanggil dari Menu User (pilihan `3`). User memilih lapak berdasarkan ID, menentukan jumlah lapak, memberi nama tenant miliknya, lalu membayar memakai saldo. Setelah berhasil, kuota lapak induk berkurang, tenant baru berstatus `Disewa` ditambahkan, transaksi dicatat, dan invoice dicetak.
 
-### Variabel yang Digunakan
+#### Variabel yang Digunakan
 
 | Variabel | Fungsi |
 |---|---|
-| `id_tenant` | ID tenant yang dipilih user (divalidasi `input_angka()`) |
-| `tenant` | Data tenant hasil `cari_tenant()` |
+| `id_tenant` | ID lapak yang dipilih user (divalidasi `input_angka()`) |
+| `tenant` | Data lapak hasil `cari_tenant()` |
 | `qty` | Jumlah lapak yang ingin disewa |
 | `total` | Total biaya (`harga * qty`) |
 | `users[username]['saldo']` | Saldo user yang sedang login |
 | `trx` | Hasil `catat_transaksi()`, dipakai untuk mencetak invoice |
 
-### Alur Proses
+#### Alur Proses
 
 | No | Proses | Kondisi | Hasil |
 |---|---|---|---|
 | 1 | Tampil judul `=== RESERVASI & PEMBAYARAN TENANT ===` | - | - |
 | 2 | Tampilkan data tenant | - | Daftar tenant tampil dalam tabel |
 | 3 | `id_tenant = input_angka(...)` | - | Input harus berupa angka |
-| 4 | Cari tenant berdasarkan ID | Tidak ditemukan | Tampil pesan error, kembali ke Menu User |
-| 5 | Ambil data tenant yang ditemukan | Ditemukan | Lanjut ke langkah 6 |
-| 6 | Cek stok lapak | Stok habis ⚠️ | Tampil pesan stok habis, kembali ke Menu User |
+| 4 | Cari lapak berdasarkan ID | Tidak ditemukan | Tampil pesan error, kembali ke Menu User |
+| 5 | Ambil data lapak yang ditemukan | Ditemukan | Lanjut ke langkah 6 |
+| 6 | Cek stok lapak | Stok habis | Tampil pesan stok habis, kembali ke Menu User |
 | 7 | `qty = input_angka(...)` | - | Jumlah lapak yang ingin disewa |
-| 8 | Cek `qty` melebihi stok ⚠️ | Ya | Tampil pesan jumlah tidak valid, kembali ke Menu User |
-| 9 | Hitung `total = harga * qty` | - | Total ditampilkan ke user |
-| 10 | Cek saldo `< total` | Ya | Tampil "Saldo tidak cukup" dan arahan untuk top up, kembali ke Menu User |
-| 11 | `konfirmasi("Lanjutkan pembayaran?")` ⚠️ | Jawaban bukan `y` | Tampil "Pembayaran dibatalkan", kembali ke Menu User |
-| 12 | Kurangi saldo user dan stok tenant | Jawaban `y` | `saldo -= total`, `stok -= qty` |
-| 13 | Simpan perubahan ke `users.json` dan `tenants.json` | - | Data tersimpan permanen |
-| 14 | `catat_transaksi(...)` | - | Transaksi tipe `Reservasi` tercatat |
-| 15 | Tampil "Pembayaran berhasil!" | - | - |
-| 16 | `cetak_invoice(trx)` | - | Invoice `.txt` dibuat di folder `invoice` |
-| 17 | Tampil "Tekan ENTER untuk kembali..." | - | Menunggu ENTER, lalu kembali ke Menu User |
+| 8 | Cek `qty` melebihi stok | Ya | Tampil pesan jumlah tidak valid, kembali ke Menu User |
+| 9 | Input nama tenant | Kosong | Tampil pesan, kembali ke Menu User |
+| 10 | Hitung `total = harga * qty` | - | Ringkasan dan total bayar ditampilkan |
+| 11 | Cek saldo `< total` | Ya | Tampil "Saldo tidak cukup" beserta selisihnya, kembali ke Menu User |
+| 12 | `konfirmasi("Lanjutkan pembayaran?")` | Jawaban bukan `y` | Tampil "Pembayaran dibatalkan", kembali ke Menu User |
+| 13 | Kurangi saldo user dan kuota lapak induk | Jawaban `y` | `saldo -= total`, `stok -= qty`, tenant baru berstatus `Disewa` ditambahkan |
+| 14 | Simpan perubahan ke `users.json` dan `tenant.json` | - | Data tersimpan permanen |
+| 15 | `catat_transaksi(...)` | - | Transaksi tipe `Reservasi` tercatat |
+| 16 | Tampil "Pembayaran berhasil!" | - | - |
+| 17 | `cetak_invoice(trx)` | - | Invoice `.txt` dibuat di folder `invoice` |
+| 18 | Tampil "Tekan ENTER untuk kembali..." | - | Menunggu ENTER, lalu kembali ke Menu User |
 
-### Validasi Pemesanan
+#### Validasi Pemesanan
 
 | Validasi | Kondisi gagal | Hasil |
 |---|---|---|
-| ID tenant | Tidak ada di `tenants.json` | Ditolak, kembali ke Menu User |
-| Stok lapak ⚠️ | Stok `0` | Ditolak, kembali ke Menu User |
-| Jumlah lapak ⚠️ | `qty` melebihi stok tersedia | Ditolak, kembali ke Menu User |
+| ID lapak | Tidak ada di `tenant.json` | Ditolak, kembali ke Menu User |
+| Stok lapak | Stok `0` | Ditolak, kembali ke Menu User |
+| Jumlah lapak | `qty` melebihi stok tersedia | Ditolak, kembali ke Menu User |
+| Nama tenant | Kosong | Ditolak, kembali ke Menu User |
 | Saldo | Saldo `< total` | Ditolak, user diarahkan top up |
 | Konfirmasi | Jawaban `n` | Dibatalkan, tidak ada perubahan data |
 
-### Data yang Berubah Setelah Pembayaran
+#### Data yang Berubah Setelah Pembayaran
 
 | File | Perubahan |
 |---|---|
 | `users.json` | Saldo user berkurang sebesar `total` |
-| `tenants.json` | Stok tenant berkurang sebesar `qty` |
+| `tenant.json` | Stok lapak induk berkurang sebesar `qty`, tenant baru berstatus `Disewa` bertambah |
 | `transaksi.json` | Bertambah satu transaksi bertipe `Reservasi` |
 | Folder `invoice/` | Bertambah satu file invoice `.txt` |
 
-### Penjelasan Konektor
+#### Penjelasan Konektor
 
 | Simbol di flowchart | Arti |
 |---|---|
-| Pentagon hijau (atas) ⚠️ | Titik masuk dari Menu User pilihan `3` (huruf harus sama dengan flowchart Menu User) |
+| Pentagon hijau (atas) | Titik masuk dari Menu User pilihan `3` |
 | Lingkaran `A` (di kanan) | Kembali ke awal Menu User (jalur validasi gagal atau dibatalkan) |
 | Lingkaran `A` (bawah) | Kembali ke Menu User setelah ENTER |
 | Pentagon hijau (paling bawah) | Kembali ke Menu User |
@@ -480,31 +470,29 @@ Fitur ini dipanggil dari Menu User (pilihan `3`). User memilih tenant berdasarka
 </tr>
 </table>
 
-### 4.8 Fungsi Pendukung
+### 4.7 Fungsi Pendukung
 
 Tiga fungsi ini dipanggil dari fitur lain (top up, reservasi, tenant) dan tidak tampil langsung ke user.
 
 ---
 
-### 1. `perbarui_status(tenant)` ⚠️
+#### 1. `perbarui_status(tenant)`
 
 <table>
 <tr>
-<td width="45%" valign="top">
+<td valign="top">
 
-<a href="img/flowchart_perbarui_status.png">
-  <img src="https://github.com/user-attachments/assets/4ea4149d-2d5c-4230-944f-8f62e5cada92" />
-</a>
+<img src="https://github.com/user-attachments/assets/bf00d338-15a3-46bb-b5eb-ab7ed6ec0dd4" alt="Flowchart perbarui_status" width="380">
 
 </td>
-<td width="55%" valign="top">
+<td valign="top">
 
 Memperbarui kolom status tenant sesuai sisa stok lapak.
 
 | Kondisi | Hasil |
 |---|---|
-| `tenant['stok'] > 0` ⚠️ | `tenant['status'] = "Tersedia"` |
-| `tenant['stok'] == 0` ⚠️ | `tenant['status'] = "Penuh"` |
+| `tenant['stok'] > 0` | `tenant['status'] = "Tersedia"` |
+| `tenant['stok'] == 0` | `tenant['status'] = "Penuh"` |
 
 | Detail | Keterangan |
 |---|---|
@@ -518,25 +506,23 @@ Memperbarui kolom status tenant sesuai sisa stok lapak.
 
 ---
 
-### 2. `buat_kode()`
+#### 2. `buat_kode()`
 
 <table>
 <tr>
-<td width="45%" valign="top">
+<td valign="top">
 
-<a href="img/flowchart_buat_kode.png">
-  <img src="img/flowchart_buat_kode.png" alt="Flowchart buat_kode" width="100%">
-</a>
+<img src="https://github.com/user-attachments/assets/a5f705a3-1e85-4dea-b26f-83051faf188b" alt="Flowchart buat_kode" width="380">
 
 </td>
-<td width="55%" valign="top">
+<td valign="top">
 
 Membuat kode transaksi unik (contoh: `TRX-251103200500`).
 
 | No | Proses | Hasil |
 |---|---|---|
 | 1 | Baca data transaksi dengan `baca_trx()` | Daftar transaksi dimuat |
-| 2 | Susun `kode = "TRX-" + tanggal waktu` ⚠️ | Format dari `datetime.now().strftime(...)` |
+| 2 | Susun `kode = "TRX-" + tanggal waktu` | Format dari `datetime.now().strftime(...)` |
 | 3 | Set `ada = False` | Penanda kode belum dipakai |
 | 4 | Cek apakah masih ada transaksi | Ya: lanjut ke langkah 5. Tidak: ke langkah 6 |
 | 5 | Cek `kode` sama dengan kode transaksi | Jika sama, `ada = True`, lanjut cek transaksi berikutnya |
@@ -554,25 +540,23 @@ Membuat kode transaksi unik (contoh: `TRX-251103200500`).
 
 ---
 
-### 3. `catat_transaksi(username, tipe, tenant, jumlah, qty, saldo_akhir)`
+#### 3. `catat_transaksi(username, tipe, tenant, jumlah, qty, saldo_akhir)`
 
 <table>
 <tr>
-<td width="45%" valign="top">
+<td valign="top">
 
-<a href="img/flowchart_catat_transaksi.png">
-  <img src="img/flowchart_catat_transaksi.png" alt="Flowchart catat_transaksi" width="100%">
-</a>
+<img src="https://github.com/user-attachments/assets/ad7826bb-1ea6-4a60-abfc-f03df682adbe" alt="Flowchart catat_transaksi" width="380">
 
 </td>
-<td width="55%" valign="top">
+<td valign="top">
 
 Menyimpan satu transaksi baru ke `transaksi.json`.
 
 | Parameter | Fungsi |
 |---|---|
 | `username` | Pemilik transaksi |
-| `tipe` | Jenis transaksi (`Top Up` atau `Reservasi`) |
+| `tipe` | Jenis transaksi (`Top Up`, `Top Up Admin`, atau `Reservasi`) |
 | `tenant` | Data tenant, atau `None` untuk top up |
 | `jumlah` | Nominal uang transaksi |
 | `qty` | Jumlah lapak |
@@ -581,9 +565,9 @@ Menyimpan satu transaksi baru ke `transaksi.json`.
 | No | Proses | Hasil |
 |---|---|---|
 | 1 | Baca data dengan `baca_trx()` | Daftar transaksi dimuat |
-| 2 | Buat `waktu` dari `datetime.now()` | Format `YYYY-MM-DD HH:MM:SS` ⚠️ |
+| 2 | Buat `waktu` dari `datetime.now()` | Format `YYYY-MM-DD HH:MM:SS` |
 | 3 | Cek `tenant` ada | Ya: `tenant_id` dan `tenant_nama` diambil dari data tenant |
-| 3 | Cek `tenant` ada | Tidak: `tenant_id = 0`, `tenant_nama = "-"` ⚠️ |
+| 3 | Cek `tenant` ada | Tidak: `tenant_id = 0`, `tenant_nama = "-"` |
 | 4 | Susun data `trx` dengan `kode = buat_kode()` | Dictionary berisi seluruh field transaksi |
 | 5 | `transaksi.append(trx)` | Transaksi masuk ke list |
 | 6 | Simpan ke `transaksi.json` | Data tersimpan permanen |
@@ -594,7 +578,7 @@ Menyimpan satu transaksi baru ke `transaksi.json`.
 | `kode` | Hasil `buat_kode()` |
 | `waktu` | Tanggal dan jam transaksi |
 | `username` | Pemilik transaksi |
-| `tipe` | `Top Up` atau `Reservasi` |
+| `tipe` | `Top Up`, `Top Up Admin`, atau `Reservasi` |
 | `tenant_id`, `tenant_nama` | Data tenant (atau nilai kosong) |
 | `qty`, `jumlah`, `saldo_akhir` | Jumlah lapak, nominal, saldo sesudah transaksi |
 
@@ -602,21 +586,20 @@ Menyimpan satu transaksi baru ke `transaksi.json`.
 </tr>
 </table>
 
-### 4.9 Invoice & Riwayat Transaksi
 
-Tiga fungsi ini dipanggil dari Menu User (pilihan `4`), Menu Admin (riwayat), dan setelah pembayaran reservasi.
+### 4.8 Invoice & Riwayat Transaksi
+
+Tiga fungsi ini dipanggil dari Menu User (pilihan `4`), Menu Admin (pilihan `5`), dan setelah pembayaran reservasi.
 
 ---
 
-### 1. `cetak_invoice(trx)`
+#### 1. `cetak_invoice(trx)`
 
 <table>
 <tr>
 <td width="45%" valign="top">
 
-<a href="img/flowchart_cetak_invoice.png">
-  <img src="https://github.com/user-attachments/assets/7d50e524-bce2-4ec1-a645-8f9d16dd4963" />
-</a>
+<img src="https://github.com/user-attachments/assets/a1e089f6-8b76-4ac0-af52-a4763ccc13c5" />
 
 </td>
 <td width="55%" valign="top">
@@ -625,16 +608,16 @@ Membuat invoice dari satu transaksi, menampilkannya di layar, lalu menyimpannya 
 
 | No | Proses | Hasil |
 |---|---|---|
-| 1 | Susun teks invoice dari data `trx` ⚠️ | Berisi kode, waktu, pelanggan, tenant, qty, total, dan saldo akhir |
+| 1 | Susun teks invoice dari data `trx` | Berisi kode, waktu, pelanggan, tenant, kategori, jumlah lapak, total bayar, dan sisa saldo |
 | 2 | Tampilkan invoice di layar | User langsung melihat struknya |
-| 3 | Tentukan nama file di folder `invoice/` ⚠️ | Contoh: `invoice/TRX-xxxx.txt` |
+| 3 | Tentukan nama file di folder `invoice/` | Contoh: `invoice/TRX-xxxx.txt` |
 | 4 | Tulis teks ke file (`try`) | File invoice dibuat |
 | 5a | Berhasil | Tampil "Invoice tersimpan di ..." |
 | 5b | Gagal (`except`) | Tampil pesan gagal menyimpan, program tetap berjalan |
 
 | Detail | Keterangan |
 |---|---|
-| Parameter | `trx`, yaitu dictionary transaksi dari `catat_transaksi()` |
+| Parameter | `trx`, dictionary transaksi dari `catat_transaksi()` |
 | Dipanggil dari | Reservasi dan `cetak_ulang_invoice()` |
 | Nilai kembali | Tidak ada |
 
@@ -644,24 +627,22 @@ Membuat invoice dari satu transaksi, menampilkannya di layar, lalu menyimpannya 
 
 ---
 
-### 2. `tampilkan_riwayat(username, role)`
+#### 2. `tampilkan_riwayat(username, role)`
 
 <table>
 <tr>
 <td width="45%" valign="top">
 
-<a href="img/flowchart_tampilkan_riwayat.png">
-  <img src="img/flowchart_tampilkan_riwayat.png" alt="Flowchart tampilkan_riwayat" width="100%">
-</a>
+<img src="https://github.com/user-attachments/assets/2a0cfd1a-1337-4f08-b05d-764fecf13d8e" alt="Flowchart tampilkan_riwayat" width="380">
 
 </td>
 <td width="55%" valign="top">
 
-Menampilkan riwayat transaksi dalam tabel. Admin melihat semua transaksi, user hanya melihat miliknya sendiri.
+Menampilkan riwayat transaksi dalam bentuk tabel. Admin dapat melihat semua transaksi, sedangkan user hanya dapat melihat transaksi miliknya sendiri.
 
 | No | Proses | Hasil |
 |---|---|---|
-| 1 | Buat tabel `PrettyTable` dengan kolom transaksi ⚠️ | Kode, Waktu, User, Tipe, Tenant, Qty, Jumlah, Saldo |
+| 1 | Buat tabel `PrettyTable` dengan kolom transaksi | Kode, Waktu, User, Tipe, Tenant, Nama Usaha, Qty, Jumlah, Saldo Akhir |
 | 2 | Set `ada = False` | Penanda belum ada baris |
 | 3 | Cek apakah masih ada transaksi | Ya: lanjut ke langkah 4. Tidak: ke langkah 5 |
 | 4 | Cek `role == admin` atau `username` cocok | Ya: baris ditambahkan ke tabel, `ada = True`. Tidak: dilewati |
@@ -678,24 +659,22 @@ Menampilkan riwayat transaksi dalam tabel. Admin melihat semua transaksi, user h
 
 ---
 
-### 3. `cetak_ulang_invoice(username, role)`
+#### 3. `cetak_ulang_invoice(username, role)`
 
 <table>
 <tr>
 <td width="45%" valign="top">
 
-<a href="img/flowchart_cetak_ulang_invoice.png">
-  <img src="img/flowchart_cetak_ulang_invoice.png" alt="Flowchart cetak_ulang_invoice" width="100%">
-</a>
+<img src="https://github.com/user-attachments/assets/d079991d-5dce-44c9-9e87-f266f92b86dc" alt="Flowchart cetak_ulang_invoice" width="380">
 
 </td>
 <td width="55%" valign="top">
 
-Mencetak ulang invoice dari kode transaksi yang diinput. Dilengkapi tiga validasi sebelum invoice dicetak.
+Mencetak ulang invoice berdasarkan kode transaksi yang dimasukkan oleh user. Fungsi ini memiliki beberapa validasi untuk memastikan transaksi ditemukan dan pengguna memiliki hak akses.
 
 | No | Proses | Kondisi | Hasil |
 |---|---|---|---|
-| 1 | Tampilkan riwayat dengan `tampilkan_riwayat()` ⚠️ | - | User melihat daftar kode |
+| 1 | Tampilkan riwayat dengan `tampilkan_riwayat()` | - | User melihat daftar kode |
 | 2 | Cek ada transaksi | Tidak ada | Tampil "Riwayat kosong", kembali ke menu |
 | 3 | Input kode transaksi | - | Pencarian di `transaksi.json` |
 | 4 | Cek kode ditemukan | Tidak ditemukan | Tampil "Kode tidak ditemukan", kembali ke menu |
@@ -707,12 +686,13 @@ Mencetak ulang invoice dari kode transaksi yang diinput. Dilengkapi tiga validas
 |---|---|
 | Kode ditemukan | Mencegah error saat kode tidak ada |
 | Hak akses | User tidak boleh melihat invoice milik orang lain |
-| Tipe `Reservasi` | Invoice hanya dibuat untuk reservasi, tidak untuk top up |
+| Tipe transaksi | Invoice hanya dibuat untuk reservasi, bukan top up |
 
 </td>
 </tr>
 </table>
 
+---
 ## 5. 📋 Daftar Fitur per Role
 
 ### 🌐 Umum (Tanpa Login)
@@ -750,7 +730,7 @@ Mencetak ulang invoice dari kode transaksi yang diinput. Dilengkapi tiga validas
 
 ## 6. 📸 Screenshot Output & Penjelasan
 
-> 📝 **Petunjuk untuk tim:** jalankan program, ambil screenshot tiap tampilan, simpan di folder `docs/screenshots/` dengan nama file seperti di bawah, lalu gambar akan muncul otomatis.
+> 📝 **Petunjuk untuk tim:** jalankan program, ambil screenshot tiap tampilan, simpan di folder `docs/screenshots/` dengan nama file seperti di bawah, lalu gambar akan muncul otomatis. Hapus petunjuk ini setelah semua screenshot terpasang.
 
 ### 6.1 Menu Utama
 
@@ -848,8 +828,8 @@ Mencetak ulang invoice dari kode transaksi yang diinput. Dilengkapi tiga validas
 
 ```bash
 # 1. Clone repositori
-git clone https://github.com/<nama-organisasi>/<nama-repositori>.git
-cd <nama-repositori>
+git clone https://github.com/APASrah/PA-APASrah.git
+cd PA-APASrah
 
 # 2. Pasang library
 pip install prettytable pwinput
@@ -873,6 +853,6 @@ Contoh `users.json`:
 
 <div align="center">
 
-Dibuat oleh **Tim <Nama Organisasi>**
+Dibuat oleh **Tim APASrah**
 
 </div>
