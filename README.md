@@ -26,7 +26,6 @@
 10. [Alur Kerja Sistem](#10-Alur--Kerja-sistem)
 11. [Daftar Fitur per Role](#11-daftar-fitur-per-role)
 12. [Screenshot Output & Penjelasan](#12-screenshot-output--penjelasan)
-13. [Cara Menjalankan Program](#13-cara-menjalankan-program)
 
 ---
 
