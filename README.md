@@ -19,9 +19,14 @@
 3. [Deskripsi & Tujuan](#3-deskripsi--tujuan)
 4. [Flowchart](#4-flowchart)
 5. [Kode dan Penjelasan](#5-Kode--dan--Penjelasan)
-6. [Daftar Fitur per Role](#5-daftar-fitur-per-role)
-7. [Screenshot Output & Penjelasan](#6-screenshot-output--penjelasan)
-8. [Cara Menjalankan Program](#7-cara-menjalankan-program)
+6. [Persiapan](#6-Persiapan)
+7. [Penjelasan Kode Program](#7-Penjelasan--kode--program)
+8. [Struktur Data JSON](#8-Struktur--Data--JSON)
+9. [Aturan dan Validasi Sistem](#9-Aturan--dan--Validasi)
+10. [Alur Kerja Sistem](#10-Alur--Kerja-sistem)
+11. [Daftar Fitur per Role](#11-daftar-fitur-per-role)
+12. [Screenshot Output & Penjelasan](#12-screenshot-output--penjelasan)
+13. [Cara Menjalankan Program](#13-cara-menjalankan-program)
 
 ---
 
